@@ -1,0 +1,26 @@
+@mixin line_after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: 1px;
+    //width: 100%;
+    background-color: #dbdbdb;
+
+}
+
+@mixin dataAndType {
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.14px;
+    color: #858585;
+}
+
+@mixin boldTextInHistory {
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1.07;
+    letter-spacing: 0.17px;
+    color: #000000;
+}

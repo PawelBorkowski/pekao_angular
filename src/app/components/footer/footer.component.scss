@@ -1,0 +1,120 @@
+@import '../../../styles/core';
+
+footer {
+
+  display: fixed;
+  bottom: 0px;
+  background-color: #f4f4f4;
+  color: #858585;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    height: 2px;
+    width: 100%;
+    background-color: #979797;
+  }
+
+
+
+  .container_footer {
+    margin: 0 15px 0 15px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+
+    @media (min-width:768px) {
+      padding-top: 30px;
+      padding-bottom: 13px;
+      // height: 140px;
+    }
+
+    @media (min-width:1352px) {
+      margin: 0px auto;
+      padding-top: 30px;
+      padding-bottom: 33px;
+      max-width: 1220px;
+    }
+
+    .list_links {
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.71;
+
+      @media (min-width:768px) {
+        line-height: normal;
+      }
+
+      @media (min-width:1352px) {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 38px;
+      }
+
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        //padding: 3px;
+
+        @media (min-width:768px) {
+          padding: 0;
+        }
+
+        .item {
+          //padding: 2px;
+
+          @media (min-width:768px) {
+            padding: 0;
+          }
+
+          @media (min-width:1352px) {
+            padding: 0 15px 0 5px;
+          }
+
+          a {
+            text-decoration: none;
+            color: #858585;
+          }
+        }
+
+        @media (min-width:768px) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+      .copyright {
+        text-align: center;
+        margin-bottom: 28px;
+        margin-top: 28px;
+
+        @media (min-width:768px) {
+          margin-bottom: 15px;
+          margin-top: 15px;
+        }
+
+        @media (min-width:1352px) {
+          margin: 0px
+        }
+      }
+    }
+
+    .bank_credibility {
+      font-size: 9px;
+      color: #747474;
+      text-transform: uppercase;
+      text-align: center;
+      //margin-bottom: 3px;
+      line-height: normal;
+
+      @media (min-width:768px) {
+        margin-bottom: 0px;
+      }
+    }
+
+
+  }
+}
