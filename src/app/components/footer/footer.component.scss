@@ -1,9 +1,9 @@
 @import '../../../styles/core';
 
 footer {
-
-  display: fixed;
-  bottom: 0px;
+  // display: fixed;
+  // position: absolute;
+  // bottom: -200px;
   background-color: #f4f4f4;
   color: #858585;
   position: relative;
@@ -16,8 +16,6 @@ footer {
     width: 100%;
     background-color: #979797;
   }
-
-
 
   .container_footer {
     margin: 0 15px 0 15px;
@@ -51,7 +49,6 @@ footer {
         justify-content: space-between;
         margin-bottom: 38px;
       }
-
 
       .links {
         display: flex;
@@ -114,7 +111,5 @@ footer {
         margin-bottom: 0px;
       }
     }
-
-
   }
 }
