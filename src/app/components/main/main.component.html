@@ -1,0 +1,80 @@
+<main class="container_main">
+  <div class="all_sections">
+    <div class="informations">
+      <div class="inforamtion_account">
+        <p class="title">Rachunek podstawowy</p>
+        <h1 class="description">
+          Moje konto przekorzystne<span class="account-arrow"><img src="../../../assets/images/icon-right-arrow.svg"
+              alt="arrow" /></span>
+        </h1>
+        <p class="number_bank">12 3456 7890 1234 5678 9012 3456</p>
+      </div>
+      <div class="information_account2">
+        <p class="available_amount">dostęne środki</p>
+        <p class="amount">12 345,67 PLN</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="twoButtons">
+        <a href="#" class="newPay">nowa płatność</a>
+        <a href="#" class="history">historia</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="table_of_payment">
+        <div class="rows_of_history">
+          <div class="titles_of_column_tablet">
+            <p>data</p>
+            <p>type</p>
+            <p>odbiorca/nadawca/tytuł</p>
+            <p>kategoria</p>
+            <p>Kwota</p>
+          </div>
+          <!-- first row -->
+          <div class="name_items_in_column" *ngFor="let row of [1, 2, 3, 4]">
+            <div class="kind_data">
+              <span>
+                <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span>
+              <p class="data">21.05</p>
+            </div>
+            <div class="image_of_typ_pay">
+              <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" />
+            </div>
+            <div class="name_title">
+              <p>Antonina Wójcik</p>
+              <p>Zwrot</p>
+            </div>
+            <div class="category_of_transaction">
+              <p>wpływy wewn.</p>
+            </div>
+            <div class="amount_PLN">
+              <p>125,68 pln</p>
+            </div>
+          </div>
+          <!-- end first row -->
+        </div>
+      </div>
+      <a href="#" class="see-more">Pokaż więcej</a>
+    </section>
+  </div>
+  <aside>
+    <div class="offer-for-you">
+      <h2 class="offer-title">Masz wolne środki</h2>
+      <p class="offer-description">
+        Na swoim koncie masz dużo wolnych środków. Warto przenieść je na
+        lokatę i uchronić przed inflacją
+      </p>
+      <a href="#" class="call-to-action">call to action</a>
+      <div class="white-points">
+        <div class="white-point"></div>
+        <div class="white-point"></div>
+        <div class="white-point"></div>
+      </div>
+    </div>
+    <div class="spending-analysis">
+      <p class="title-analysis-spending">Analiza wydatków</p>
+    </div>
+  </aside>
+</main>

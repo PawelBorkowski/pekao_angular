@@ -1,0 +1,458 @@
+@import '../../../styles/core';
+main {
+  //height: 70vh;
+  min-width: 320px;
+  background-color: #f4f4f4;
+  margin-bottom: 20px;
+  //height: calc(100% - 387px);
+  position: relative;
+
+  .all_sections {
+      background-color: white;
+      border: solid 1px #dbdbdb;
+
+
+      .informations {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+
+          margin: {
+              left: 20px;
+              right: 20px;
+          }
+
+          &::after {
+              @include line_after;
+
+              @media(min-width: 768px) {
+                  height: 0;
+              }
+          }
+
+          .title {
+              font-size: 10px;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              margin-top: 32px;
+              margin-bottom: 3px;
+              color: $second-brand-color;
+          }
+
+          .description {
+              font-size: 24px;
+              font-weight: 900;
+
+              .account-arrow {
+                  width: 19.6px;
+                  height: 16px;
+                  margin-left: 10px;
+                  color: red;
+
+              }
+          }
+
+          .number_bank {
+              font-size: 10px;
+              letter-spacing: 1px;
+              margin-top: 3px;
+              color: #858585;
+          }
+
+          .available_amount {
+              font-size: 10px;
+              letter-spacing: 1px;
+              color: #2f3234;
+              text-align: left;
+              margin-bottom: 3px;
+              text-transform: uppercase;
+              margin-top: 18px;
+              color: $second-brand-color;
+          }
+
+          .amount {
+              font-size: 18px;
+              font-weight: 900;
+              color: $second-brand-color;
+              margin-bottom: 20px;
+          }
+
+          @media (min-width:768px) {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: flex-start;
+
+              .amount {
+                  // font-family: LatoLatin;
+                  font-size: 26px;
+                  text-align: right;
+              }
+
+              .description {
+                  font-size: 26px;
+              }
+
+              .title {
+                  margin-top: 22px;
+              }
+
+              .available_amount {
+                  margin-top: 22px;
+                  text-align: right;
+              }
+          }
+      }
+
+      .twoButtons {
+          display: flex;
+          flex-direction: column;
+
+          margin: {
+              left: 20px;
+              right: 20px;
+          }
+
+          margin-top: 25px;
+          position: relative;
+
+          &::after {
+              @include line_after;
+
+              @media(min-width: 768px) {
+                  height: 0;
+              }
+          }
+
+          .newPay,
+          .history {
+              display: inline-block;
+              height: 50px;
+              background-color: $brand-color;
+              line-height: 50px;
+              border-radius: 4px;
+              text-align: center;
+              text-decoration: none;
+              text-transform: uppercase;
+              color: white;
+              font-size: 12px;
+              font-weight: bold;
+              letter-spacing: 0.14px;
+          }
+
+          .newPay {
+              margin-bottom: 25px;
+          }
+
+          .history {
+              background-color: #f4f4f4;
+              color: $brand-color;
+              margin-bottom: 25px;
+          }
+
+          @media (min-width:768px) {
+              flex-direction: row;
+
+              .newPay,
+              .history {
+                  height: 50px;
+                  width: 210px;
+                  margin-right: 20px;
+              }
+          }
+      }
+
+      .rows_of_history {
+          .titles_of_column_tablet {
+              display: none;
+              position: relative;
+              padding-bottom: 4.5px;
+
+              @media(min-width: 768px) {
+                  display: flex;
+                  justify-content: space-between;
+                  margin: 0 20px 0 20px;
+                  font-size: 10px;
+                  line-height: 1.5;
+                  letter-spacing: 0.12px;
+                  text-align: center;
+                  color: #858585;
+                  text-transform: uppercase;
+
+                  p:nth-child(1) {
+                      width: 60px;
+                      text-align: center;
+                  }
+
+                  p:nth-child(2) {
+                      width: 60px;
+                      text-align: center;
+                  }
+
+                  p:nth-child(3) {
+                      flex-grow: 1;
+                      text-align: left;
+                      margin-left: 20px;
+                  }
+
+                  p:nth-child(4) {
+                      width: 90px;
+                      text-align: left;
+                      align-items: left;
+                  }
+
+                  p:nth-child(5) {
+                      text-align: right;
+                      flex-grow: 1;
+                      max-width: 200px;
+                      width: 200px
+                  }
+
+
+
+                  &::after {
+                      @include line_after;
+                      left: -20px;
+                      right: -20px;
+                  }
+
+              }
+          }
+
+          .name_items_in_column {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              margin: 17.5px 23.5px 0 21px;
+              padding-bottom: 14.5px;
+              position: relative;
+
+              &::after {
+                  @include line_after;
+                  left: -20px;
+                  right: -20px;
+              }
+
+              &:not(:first-child) {
+                  margin-top: 18px;
+              }
+
+              .kind_data {
+                  @include dataAndType;
+                  text-align: left;
+
+
+                  @media(min-width: 768px) {
+                      display: flex;
+                      align-items: center;
+                      @include boldTextInHistory;
+                  }
+
+                  .incoming_cash {
+                      margin-bottom: 2px;
+                      width: 13px;
+                      height: 13px;
+                      // width: 60px;
+                      margin-left: 10px;
+
+
+                      @media(min-width: 768px) {
+                          display: none;
+                      }
+                  }
+
+                  .data {
+                      width: 60px;
+                      text-align: left;
+
+                      @media(min-width: 768px) {
+                          text-align: center;
+                      }
+                  }
+              }
+
+              .image_of_typ_pay {
+                  display: none;
+
+
+                  @media(min-width: 768px) {
+                      display: flex;
+                      align-items: center;
+                      width: 60px;
+
+                      .incoming_cash {
+                          width: 17px;
+                          height: 16px;
+                          margin: 0 auto;
+                      }
+                  }
+              }
+
+              .name_title {
+                  flex-grow: 1;
+                  margin-left: 20px;
+
+                  p:first-child {
+                      @include boldTextInHistory;
+                      margin-bottom: 2px;
+                  }
+
+                  p:last-child {
+                      @include dataAndType;
+                      text-align: left;
+                  }
+              }
+
+              .amount_PLN {
+                  @include boldTextInHistory;
+                  text-transform: uppercase;
+                  display: flex;
+                  flex-grow: 1;
+                  justify-content: flex-end;
+                  max-width: 200px;
+
+                  @media(min-width: 768px) {
+                      align-self: center;
+                  }
+              }
+
+              .category_of_transaction {
+                  display: none;
+
+                  @media(min-width: 768px) {
+                      display: flex;
+                      align-items: center;
+                      text-transform: uppercase;
+                      font-size: 10px;
+                      line-height: 1.5;
+                      letter-spacing: 0.12px;
+                      color: #3cae64;
+                      width: 90px;
+                  }
+              }
+
+              @media(min-width: 768px) {
+                  margin: 0 20px 0 20px;
+              }
+          }
+      }
+
+      .see-more {
+          display: inline-block;
+          margin: 13px 0 15px 18px;
+          font-size: 14px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.07;
+          letter-spacing: 0.17px;
+          text-align: right;
+          color: $brand-color;
+          text-decoration: none;
+          text-transform: uppercase;
+
+          @media (min-width:768px) {
+              margin: 28px 0 35px 20px;
+          }
+      }
+
+      @media (min-width:768px) {
+          margin: {
+              left: 20px;
+              right: 20px;
+              top: 40px
+          }
+      }
+
+      @media (min-width:1352px) {
+          flex-grow: 1;
+          align-self: flex-start;
+
+          margin: {
+              top: 0;
+              left: 0;
+          }
+      }
+  }
+
+  aside {
+      display: none;
+
+      @media (min-width:1352px) {
+          display: flex;
+          flex-direction: column;
+
+          .offer-for-you {
+              //height: 180px;
+              width: 380px;
+              background-color: #4c92e0;
+              margin-bottom: 40px;
+              padding: 20px;
+
+              .offer-title {
+                  font-size: 22px;
+                  font-weight: 900;
+                  color: $white;
+              }
+
+              .offer-description {
+                  margin-top: 17px;
+                  margin-bottom: 22px;
+                  width: 280px;
+                  font-size: 14px;
+                  color: $white;
+              }
+
+              .call-to-action {
+                  display: inline-block;
+                  margin-bottom: 6px;
+                  text-transform: uppercase;
+                  text-decoration: none;
+                  font-size: 14px;
+                  color: $white;
+                  margin-top: 42px;
+              }
+
+              .white-points {
+                  display: inline-block;
+                  margin-left: 153px;
+
+                  .white-point {
+                      height: 11px;
+                      width: 11px;
+                      background-color: $white;
+                      display: inline-block;
+                      border-radius: 50%;
+                      margin-right: 11px;
+                  }
+
+                  .white-point:nth-child(1) {
+                      background-color: #4c92e0;
+                      border: solid 2px $white;
+                  }
+              }
+          }
+
+          .spending-analysis {
+              height: 385px;
+              width: 380px;
+              border: solid 1px #dbdbdb;
+              background-color: $white;
+
+              .title-analysis-spending {
+                  font-size: 16px;
+                  font-weight: 900;
+                  letter-spacing: 0.19px;
+                  color: #000000;
+                  padding: 14px 20px;
+              }
+          }
+      }
+  }
+
+  @media (min-width: 1352px) {
+      max-width: 1220px;
+      margin: 40px auto;
+      display: flex;
+      justify-content: space-between;
+  }
+}
