@@ -16,7 +16,6 @@ main {
           display: flex;
           flex-direction: column;
           position: relative;
-
           margin: {
               left: 20px;
               right: 20px;
@@ -254,7 +253,6 @@ main {
                       // width: 60px;
                       margin-left: 10px;
 
-
                       @media(min-width: 768px) {
                           display: none;
                       }
@@ -272,7 +270,6 @@ main {
 
               .image_of_typ_pay {
                   display: none;
-
 
                   @media(min-width: 768px) {
                       display: flex;
@@ -366,7 +363,6 @@ main {
       @media (min-width:1352px) {
           flex-grow: 1;
           align-self: flex-start;
-
           margin: {
               top: 0;
               left: 0;
