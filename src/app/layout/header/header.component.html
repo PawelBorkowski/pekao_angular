@@ -9,12 +9,14 @@
       </button>
     </div>
     <div class="header_bntt_tablet">
-      <button class="btn_settings">
-        <img src="../../../assets/images/settings.svg" alt="settings" /></button><button class="btn_email">
-        <img src="../../../assets/images/mail.svg" alt="mail" /></button><button class="btn_user">
+      <button *ngIf="authService.user" class="btn_settings">
+        <img src="../../../assets/images/settings.svg" alt="settings" /></button>
+      <button *ngIf="authService.user" class="btn_email">
+        <img src="../../../assets/images/mail.svg" alt="mail" /></button>
+      <button *ngIf="authService.user" class="btn_user">
         <img src="../../../assets/images/user.svg" alt="mail" />
       </button>
-      <p class="user_name">Katarzyna Kowalewska</p>
+      <p *ngIf="authService.user" class="user_name">Katarzyna Kowalewska</p>
       <a *ngIf="authService.user" routerLink='/' class="log-out" (click)=logout()>Wyloguj</a>
       <a *ngIf="!authService.user" routerLink='/login' (click)=logoin() class="log-out">Zaloguj</a>
     </div>
