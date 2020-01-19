@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './bookmarks-peako/bookmarks-peako.module#BookmarksPeakoModule'
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginModule'
   }
 
 ];

@@ -15,7 +15,8 @@
         <img src="../../../assets/images/user.svg" alt="mail" />
       </button>
       <p class="user_name">Katarzyna Kowalewska</p>
-      <button class="log-out">Wyloguj</button>
+      <a *ngIf="authService.user" routerLink='/' class="log-out" (click)=logout()>Wyloguj</a>
+      <a *ngIf="!authService.user" routerLink='/login' (click)=logoin() class="log-out">Zaloguj</a>
     </div>
   </div>
 </header>
