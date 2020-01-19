@@ -18,11 +18,11 @@
       </button>
       <p *ngIf="authService.user" class="user_name">Katarzyna Kowalewska</p>
       <a *ngIf="authService.user" routerLink='/' class="log-out" (click)=logout()>Wyloguj</a>
-      <a *ngIf="!authService.user" routerLink='/login' (click)=logoin() class="log-out">Zaloguj</a>
+      <a *ngIf="!authService.user" routerLink='/login' class="log-out">Zaloguj</a>
     </div>
   </div>
 </header>
-<nav class="nav_bottom">
+<nav class="nav_bottom" *ngIf="authService.user">
   <div class="nav-btn-bottom container_nav">
     <ul class="items">
       <li class="item  ">
