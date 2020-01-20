@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPaymentComponent implements OnInit {
 
-  constructor() { console.log('in') }
+  constructor() { }
 
   ngOnInit() {
   }
