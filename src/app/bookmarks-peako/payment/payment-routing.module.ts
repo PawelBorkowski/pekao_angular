@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: PaymentComponent
-  }
+  },
+  {
+    path: 'new-payment',
+    loadChildren: '../new-payment/new-payment.module#NewPaymentModule'
+  },
 
 
 ];
