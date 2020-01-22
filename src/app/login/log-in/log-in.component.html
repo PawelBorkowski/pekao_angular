@@ -1,24 +1,33 @@
 <section class="modal-wrap ">
   <div class="main">
-    <form class="logIn ">
-      <div class="container">
-        <div class=" container_input">
-          <label class="userName control">Nazwa Użytkownika</label>
-          <input type="text" class="input_class" placeholder="Nazwa użytkownika" id="acc_number" />
-          <span class="info_about_error">Wpisz poprawną nazwe użytkownika</span>
-        </div>
-        <div class=" container_input">
-          <label class="userPassword control">Hasło </label>
-          <input type="text" class="input_class" placeholder="Hasło" id="acc_number" />
-          <span class="info_about_error">Wpisz poprawne hasło</span>
 
-          <div class="click_next">
-            <a class="btn_next" (click)=logoin() routerLink='/products'>Zaloguj</a>
-          </div>
+    <form [formGroup]="logInForm" (ngSubmit)="logoin(form)" class="logIn" #form="ngForm">
+      <div class="container">
+        <div class="container_input">
+          <label class="userName control">Nazwa Użytkownika</label>
+          <input type="text" class="input_class" placeholder="Nazwa użytkownika" formControlName="userName" />
+          <p *ngIf="!logInForm.controls.userName?.valid && (  !logInForm.controls.userName?.untouched)"
+            class="info_about_error">
+            <span *ngIf="logInForm.controls.userName?.errors.userName">Wpisz poprawną nazwe użytkownika</span>
+            <span *ngIf="logInForm.controls.userName?.errors.required">Wymagana nazwa Użytkownika</span>
+          </p>
+        </div>
+        <div class="container_input">
+          <label class="userPassword control">Hasło </label>
+          <input type="password" formControlName="userPassword" class="input_class" placeholder="Hasło" />
+          <p *ngIf="logInForm.controls['userPassword'].invalid && (logInForm.controls['userPassword'].dirty || logInForm.controls['userPassword'].touched)"
+            class="info_about_error">
+            <span *ngIf="logInForm.controls.userPassword?.errors.userPassword">Wpisz poprawne hasło</span>
+            <span *ngIf="logInForm.controls['userPassword'].errors.required">Wymagane hasło</span>
+          </p>
+
+          <!-- <div class="click_next"> -->
+          <button type="submit" [disabled]="form.invalid" class="click_next" (click)=logoin()
+            routerLink='/payment'>Zaloguj</button>
+          <!-- </div> -->
         </div>
       </div>
-
-
     </form>
+
   </div>
 </section>
