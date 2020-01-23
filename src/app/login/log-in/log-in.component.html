@@ -1,7 +1,7 @@
 <section class="modal-wrap ">
   <div class="main">
 
-    <form [formGroup]="logInForm" (ngSubmit)="logoin(form)" class="logIn" #form="ngForm">
+    <form [formGroup]="logInForm" (ngSubmit)="logoin(logInForm)" class="logIn">
       <div class="container">
         <div class="container_input">
           <label class="userName control">Nazwa Użytkownika</label>
@@ -22,7 +22,7 @@
           </p>
 
           <!-- <div class="click_next"> -->
-          <button type="submit" [disabled]="form.invalid" class="click_next" (click)=logoin()
+          <button type="submit" [disabled]="logInForm.invalid" class="click_next" (click)=logoin()
             routerLink='/payment'>Zaloguj</button>
           <!-- </div> -->
         </div>
