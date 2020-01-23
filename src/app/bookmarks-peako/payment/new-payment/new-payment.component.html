@@ -10,7 +10,7 @@
 
   <div class="main">
 
-    <form [formGroup]="newPaymentForm" class="transferForm">
+    <form [formGroup]="newPaymentForm" (submit)="reactiveSubmit()" class="transferForm">
       <div class="container">
         <div class="select_account container_input">
           <label class="choose_account control"> Z rachunku </label>
@@ -81,17 +81,18 @@
           <label class="name-order control">Nazwa zlecenia </label>
           <input formControlName="nameOrder" type="text" class="input_class" placeholder="Placeholder" id="name_order"
             checked="checked" />
-          <p *ngIf="newPaymentForm.controls['namerder'].invalid && (newPaymentForm.controls['namerder'].dirty || newPaymentForm.controls['namerder'].touched)"
+          <p *ngIf="newPaymentForm.controls['nameOrder'].invalid && (newPaymentForm.controls['nameOrder'].dirty || newPaymentForm.controls['nameOrder'].touched)"
             class="info_about_error">
             <!-- <span *ngIf="newPaymentForm.controls.namerder?.errors.namerder">Wpisz poprawne hasło</span> -->
-            <span *ngIf="newPaymentForm.controls['namerder'].errors.required">Wymagany tytuł</span>
+            <span *ngIf="newPaymentForm.controls['nameOrder'].errors.required">Wymagany tytuł</span>
           </p>
         </div>
       </div>
       <div class="footer_in_window_pay">
         <div class="click_next">
           <img src="../../../../assets/images/arrow_right_white.svg" alt="right_arrow" class="right_arrow" />
-          <button class="btn_next">Dalej</button>
+          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn_next"
+            (click)="reactiveSubmit()">Dalej</button>
         </div>
       </div>
 
