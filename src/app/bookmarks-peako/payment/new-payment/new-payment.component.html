@@ -27,9 +27,15 @@
             placeholder="Wpisz rachunek odbiorcy" id="acc_number" />
           <p *ngIf="newPaymentForm.controls['accNumber'].invalid && (newPaymentForm.controls['accNumber'].dirty || newPaymentForm.controls['accNumber'].touched)"
             class="info_about_error">
-            <span *ngIf="newPaymentForm.controls.accNumber?.errors.accNumber">Wpisz poprawny numer konta</span>
-            <span *ngIf="newPaymentForm.controls['accNumber'].errors.required">Wymagany numer konta</span>
+            <span
+              *ngIf="!newPaymentForm.controls.accNumber?.errors.required && newPaymentForm.controls.accNumber?.errors.accNumber">Wpisz
+              poprawny numer konta</span>
+            <span *ngIf="newPaymentForm.controls.accNumber?.errors.required">Wymagany numer konta</span>
           </p>
+
+
+          <!-- SI 56 1910 0000 0123 438 -->
+
 
         </div>
 
@@ -70,7 +76,7 @@
 
         <div class="container_input">
           <label class="save-as-standing control">
-            <input type="checkbox" name="standing_order" value="" id="save_as_standing" />
+            <input formControlName="isStandingOrder" type="checkbox" name="standing_order" id="save_as_standing" />
             Zapisz jako zlecenie stałe
             <!-- <span class="checkmark"></span> -->
             <span class="control__indicator"></span>
@@ -91,8 +97,7 @@
       <div class="footer_in_window_pay">
         <div class="click_next">
           <img src="../../../../assets/images/arrow_right_white.svg" alt="right_arrow" class="right_arrow" />
-          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn_next"
-            (click)="reactiveSubmit()">Dalej</button>
+          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn_next">Dalej</button>
         </div>
       </div>
 

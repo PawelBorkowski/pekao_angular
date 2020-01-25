@@ -17,10 +17,11 @@ export class NewPaymentComponent implements OnInit {
 
     createForm() {
         this.newPaymentForm = new FormGroup({
-            accNumber: new FormControl(null, [Validators.required, this.ValidateIban]),
+            accNumber: new FormControl('SI 56 1910 0000 0123 438', [Validators.required, this.ValidateIban]),
             amount: new FormControl(null, [Validators.required]),
             recipientsAddress: new FormControl(null),
             title: new FormControl(null, [Validators.required]),
+            isStandingOrder: new FormControl(null),
             nameOrder: new FormControl(null, [Validators.required])
         });
     }
@@ -30,7 +31,7 @@ export class NewPaymentComponent implements OnInit {
         if (isValid) {
             return null;
         }
-        return { accountNumber: true };
+        return { accNumber: true };
     }
 
     reactiveSubmit() {

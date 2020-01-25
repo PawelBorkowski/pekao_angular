@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
+import 'firebase/auth';
+import 'firebase/database';
+
+import * as firebase from 'firebase/app';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
+    public user = false;
 
-  public user = false;
-  constructor() { }
+    constructor() {}
 
-  logIn() {
-    this.user = true;
-  }
+    logIn() {
+        this.user = true;
+    }
 
-  logOut() {
-    this.user = false;
-  }
+    logOut() {
+        this.user = false;
+    }
 }
