@@ -10,7 +10,7 @@
 
   <div class="main">
 
-    <form [formGroup]="newPaymentForm" (submit)="reactiveSubmit()" class="transferForm">
+    <form [formGroup]="newPaymentForm" class="transferForm">
       <div class="container">
         <div class="select_account container_input">
           <label class="choose_account control"> Z rachunku </label>
@@ -32,10 +32,6 @@
               poprawny numer konta</span>
             <span *ngIf="newPaymentForm.controls.accNumber?.errors.required">Wymagany numer konta</span>
           </p>
-
-
-          <!-- SI 56 1910 0000 0123 438 -->
-
 
         </div>
 
@@ -97,7 +93,7 @@
       <div class="footer_in_window_pay">
         <div class="click_next">
           <img src="../../../../assets/images/arrow_right_white.svg" alt="right_arrow" class="right_arrow" />
-          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn_next">Dalej</button>
+          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn_next" (click)="submit()">Dalej</button>
         </div>
       </div>
 

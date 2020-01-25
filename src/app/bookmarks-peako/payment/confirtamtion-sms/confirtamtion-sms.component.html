@@ -1,0 +1,25 @@
+<section class="modal-wrap ">
+  <div class="main">
+
+    <form [formGroup]="confirmSMS" (ngSubmit)="acceptSMS(confirmSMS)" class="logIn">
+      <div class="container">
+
+        <div class="container_input">
+          <label class="userSMS control">Hasło SMS </label>
+          <input type="password" formControlName="userSMS" class="input_class" placeholder="Hasło SMS" />
+          <p *ngIf="confirmSMS.controls['userSMS'].invalid && (confirmSMS.controls['userSMS'].dirty || confirmSMS.controls['userSMS'].touched)"
+            class="info_about_error">
+            <span *ngIf="confirmSMS.controls.userSMS?.errors.userSMS">Wpisz poprawne hasło SMS</span>
+            <span *ngIf="confirmSMS.controls['userSMS'].errors.required">Wymagane hasło SMS</span>
+          </p>
+
+          <!-- <div class="click_next"> -->
+          <button type="submit" [disabled]="confirmSMS.invalid" class="click_next" routerLink='/payment'
+            (click)="acceptSMS(confirmSMS)">Potwierdź</button>
+          <!-- </div> -->
+        </div>
+      </div>
+    </form>
+
+  </div>
+</section>
