@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<main class="container_main">
+<main *ngIf="authService.user" class="container_main">
   <div class="all_sections">
     <div class="informations">
       <div class="inforamtion_account">

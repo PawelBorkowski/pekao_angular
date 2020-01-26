@@ -1,20 +1,22 @@
 <section class="modal-wrap ">
   <div class="main">
 
-    <form [formGroup]="logInForm" (ngSubmit)="logoin(logInForm)" class="logIn">
+    <form [formGroup]="logInForm" (ngSubmit)="login(logInForm)" class="logIn">
       <div class="container">
         <div class="container_input">
           <label class="userName control">Nazwa Użytkownika</label>
-          <input type="text" class="input_class" placeholder="Nazwa użytkownika" formControlName="userName" />
+          <input type="text" class="input_class" placeholder="Nazwa użytkownika" formControlName="userName"
+            [(ngModel)]="credentials.email" />
           <p *ngIf="!logInForm.controls.userName?.valid && (  !logInForm.controls.userName?.untouched)"
             class="info_about_error">
-            <span *ngIf="logInForm.controls.userName?.errors.userName">Wpisz poprawną nazwe użytkownika</span>
+            <span *ngIf="logInForm.controls.userName?.errors.email">Wpisz poprawną nazwe użytkownika</span>
             <span *ngIf="logInForm.controls.userName?.errors.required">Wymagana nazwa Użytkownika</span>
           </p>
         </div>
         <div class="container_input">
           <label class="userPassword control">Hasło </label>
-          <input type="password" formControlName="userPassword" class="input_class" placeholder="Hasło" />
+          <input type="password" formControlName="userPassword" class="input_class" placeholder="Hasło"
+            [(ngModel)]="credentials.password" />
           <p *ngIf="logInForm.controls['userPassword'].invalid && (logInForm.controls['userPassword'].dirty || logInForm.controls['userPassword'].touched)"
             class="info_about_error">
             <span *ngIf="logInForm.controls.userPassword?.errors.userPassword">Wpisz poprawne hasło</span>

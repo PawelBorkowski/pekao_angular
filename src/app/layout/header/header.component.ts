@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logoin() {
-    this.authService.logIn();
+    // this.authService.logIn();
   }
 
 }
