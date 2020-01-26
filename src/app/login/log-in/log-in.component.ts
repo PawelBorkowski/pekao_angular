@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class LogInComponent implements OnInit {
   logInForm: FormGroup;
   credentials = {
-    email: '',
-    password: ''
+    email: 'ccccc@gmail.com',
+    password: '123456'
   }
 
 
