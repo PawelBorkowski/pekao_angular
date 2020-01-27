@@ -5,26 +5,24 @@
       <div class="container">
         <div class="container_input">
           <label class="userName control">Nazwa Użytkownika</label>
-          <input type="text" class="input_class" placeholder="Nazwa użytkownika" formControlName="userName"
-            [(ngModel)]="credentials.email" />
-          <p *ngIf="!logInForm.controls.userName?.valid && (  !logInForm.controls.userName?.untouched)"
+          <input type="text" class="input_class" placeholder="Nazwa użytkownika" formControlName="email" />
+          <p *ngIf="!logInForm.controls.email?.valid && (  !logInForm.controls.email?.untouched)"
             class="info_about_error">
-            <span *ngIf="logInForm.controls.userName?.errors.email">Wpisz poprawną nazwe użytkownika</span>
-            <span *ngIf="logInForm.controls.userName?.errors.required">Wymagana nazwa Użytkownika</span>
+            <span *ngIf="logInForm.controls.email?.errors.email">Wpisz poprawną nazwe użytkownika</span>
+            <span *ngIf="logInForm.controls.email?.errors.required">Wymagana nazwa Użytkownika</span>
           </p>
         </div>
         <div class="container_input">
           <label class="userPassword control">Hasło </label>
-          <input type="password" formControlName="userPassword" class="input_class" placeholder="Hasło"
-            [(ngModel)]="credentials.password" />
-          <p *ngIf="logInForm.controls['userPassword'].invalid && (logInForm.controls['userPassword'].dirty || logInForm.controls['userPassword'].touched)"
+          <input type="password" formControlName="password" class="input_class" placeholder="Hasło" />
+          <p *ngIf="logInForm.controls['password'].invalid && (logInForm.controls['password'].dirty || logInForm.controls['password'].touched)"
             class="info_about_error">
-            <span *ngIf="logInForm.controls.userPassword?.errors.userPassword">Wpisz poprawne hasło</span>
-            <span *ngIf="logInForm.controls['userPassword'].errors.required">Wymagane hasło</span>
+            <span *ngIf="logInForm.controls.password?.errors.password">Wpisz poprawne hasło</span>
+            <span *ngIf="logInForm.controls['password'].errors.required">Wymagane hasło</span>
           </p>
 
           <!-- <div class="click_next"> -->
-          <button type="submit" [disabled]="logInForm.invalid" class="click_next">Zaloguj</button>
+          <button type="submit" class="click_next">Zaloguj</button>
           <!-- </div> -->
         </div>
       </div>

@@ -1,38 +1,39 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
-import { Observable } from 'rxjs/index';
+import { Observable, BehaviorSubject } from 'rxjs/index';
 import * as firebase from 'firebase/app';
 
-
-
-export interface Credentials {
-  email: string;
-  password: string;
+export interface ICredentials {
+    email: string;
+    password: string;
 }
 
-
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-
 export class AuthService {
-  // public user = false;
-  readonly authState$: Observable<User | null> = this.fireAuth.authState;
+    public isUserLogged$ = new BehaviorSubject(false);
 
-  constructor(private fireAuth: AngularFireAuth) { }
+    readonly authState$: Observable<User | null> = this.fireAuth.authState;
 
-  get user(): User | null {
-    return this.fireAuth.auth.currentUser;
-  }
+    constructor(private fireAuth: AngularFireAuth) {
+        this.authState$.subscribe(user => {
+            this.isUserLogged$.next(!!user);
+        });
+    }
 
-  login({ email, password }: Credentials) {
-    // this.user = true;
-    return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
-  }
+    get user(): User | null {
+        return this.fireAuth.auth.currentUser;
+    }
 
-  logOut() {
-    // this.user = false;
-    return this.fireAuth.auth.signOut();
-  }
+    login({ email, password }: ICredentials) {
+        // this.user = true;
+        return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
+    }
+
+    logOut() {
+        // this.user = false;
+        return this.fireAuth.auth.signOut();
+    }
 }

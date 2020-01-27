@@ -3,26 +3,26 @@ import { AuthService } from 'src/app/login/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    public isUserLogged: boolean = false;
+    constructor(private authService: AuthService, private router: Router) {}
 
-  constructor(public authService: AuthService, private router: Router) { }
+    ngOnInit() {
+        this.authService.isUserLogged$.subscribe(isLogged => {
+            this.isUserLogged = isLogged;
+        });
+    }
 
-  ngOnInit() {
-  }
+    logout() {
+        //this.authService.logOut();
+        this.authService.logOut().then(() => this.router.navigate(['']));
+    }
 
-  logout() {
-    //this.authService.logOut();
-    this.authService.logOut()
-      .then(() => this.router.navigate(['']));
-
-  }
-
-  logoin() {
-    // this.authService.logIn();
-  }
-
+    login() {
+        // this.authService.logIn();
+    }
 }
