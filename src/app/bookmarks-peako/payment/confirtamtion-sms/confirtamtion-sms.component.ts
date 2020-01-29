@@ -13,7 +13,10 @@ import * as firebase from 'firebase';
 export class ConfirtamtionSMSComponent implements OnInit {
 
   confirmSMS: FormGroup;
-  user: any;
+
+  public DataForm = new DataForm();
+  public tasks;
+  public user;
 
   constructor(public authService: AuthService, private router: Router) {
     this.createForm();
@@ -29,6 +32,26 @@ export class ConfirtamtionSMSComponent implements OnInit {
 
   acceptSMS() {
     console.log(this.confirmSMS);
+
+    const dbRefList = firebase
+      .database()
+      .ref('/users/' + this.user.uid)
+      .child('accounts/RANDOMSTRING');
+
+    console.log(this.DataForm, this.tasks.length);
+    dbRefList.update({ [this.tasks.length]: this.DataForm });
+
     this.router.navigate(['/payment']);
   }
+}
+
+class DataForm {
+  constructor(
+    public accNumber?: string,
+    public address?: string,
+    public amount?: number,
+    public accountName?: string,
+    public standingOrder: boolean = false,
+    public nameOrder?: number
+  ) { }
 }
