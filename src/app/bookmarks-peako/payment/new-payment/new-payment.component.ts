@@ -12,6 +12,9 @@ export class NewPaymentComponent implements OnInit {
   @ViewChild('form', { static: true }) form: NgForm;
   newPaymentForm: FormGroup;
 
+  public DataForm = new DataForm();
+  public tasks;
+  public user;
 
 
   constructor(private router: Router) {
@@ -41,9 +44,31 @@ export class NewPaymentComponent implements OnInit {
 
   submit() {
     console.log(this.newPaymentForm);
+
+
+    const dbRefList = firebase
+      .database()
+      .ref('/users/' + this.user.uid)
+      .child('accounts/RANDOMSTRING');
+
+    console.log(this.DataForm, this.tasks.length);
+    dbRefList.update({ [this.tasks.length]: this.DataForm });
+
+
     this.router.navigate(['payment/confirmSMS']);
 
   }
+}
+
+class DataForm {
+  constructor(
+    public accNumber?: string,
+    public address?: string,
+    public amount?: number,
+    public title?: string,
+    public standingOrder: boolean = false,
+    public nameOrder?: number
+  ) { }
 }
 
 
