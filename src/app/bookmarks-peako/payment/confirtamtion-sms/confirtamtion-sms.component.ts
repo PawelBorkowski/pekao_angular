@@ -30,5 +30,7 @@ export class ConfirtamtionSMSComponent implements OnInit {
   acceptSMS() {
     console.log(this.confirmSMS);
     this.router.navigate(['/payment']);
+
+    /// gfrgrf
   }
 }
