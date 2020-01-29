@@ -1,59 +1,67 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
+
 import { User } from 'firebase';
 import { Observable, BehaviorSubject } from 'rxjs/index';
 import * as firebase from 'firebase/app';
+
+
 
 import 'firebase/auth';
 import 'firebase/database';
 
 export interface ICredentials {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthService {
-    public isUserLogged$ = new BehaviorSubject(false);
+  public isUserLogged$ = new BehaviorSubject(false);
+  public profile$ = new BehaviorSubject(null);
 
-    private dbRef: firebase.database.Reference;
+  readonly user$ = new Observable<firebase.User>(observer => {
+    firebase.auth().onAuthStateChanged(user => {
+      observer.next(user);
+    });
+  });
 
-    public profile;
+  private dbRef: firebase.database.Reference;
 
-    readonly authState$: Observable<User | null> = this.fireAuth.authState;
-
-    constructor(private fireAuth: AngularFireAuth) {
-        this.authState$.subscribe(user => {
-            this.isUserLogged$.next(!!user);
+  constructor() {
+    this.user$.subscribe(user => {
+      this.isUserLogged$.next(!!user);
+      console.log('uzytkownik: ', user);
+      if (user) {
+        this.dbRef = firebase.database().ref('/users/' + user.uid);
+        this.dbRef.on('value', snapshot => {
+          this.profile$.next(snapshot.val());
+          console.log('Data:', snapshot.val());
         });
-    }
+      } else if (this.dbRef) {
+        this.dbRef.off();
+      }
+    });
 
-    get user(): User | null {
-        return this.fireAuth.auth.currentUser;
-    }
 
-    login({ email, password }: ICredentials) {
-        // this.user = true;
-        return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
-    }
+  }
 
-    // showData() {
-    //     if (this.user) {
-    //         this.dbRef = firebase.database().ref('/users/' + this.user.uid);
-    //         this.dbRef.on('value', snapshot => {
-    //             this.profile = snapshot.val().accounts;
-    //             console.log(this.profile);
-    //         });
-    //     } else if (this.dbRef) {
-    //         this.dbRef.off();
-    //         this.profile = [];
-    //     }
-    // }
+  get user(): User | null {
+    return firebase.auth().currentUser;
+  }
 
-    logOut() {
-        // this.user = false;
-        return this.fireAuth.auth.signOut();
-    }
+
+  login({ email, password }: ICredentials) {
+    // this.user = true;
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+
+
+
+  }
+
+  logOut() {
+    // this.user = false;
+    return firebase.auth().signOut();
+  }
 }

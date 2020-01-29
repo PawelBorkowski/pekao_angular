@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/login/auth.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-confirtamtion-sms',
@@ -11,6 +13,8 @@ import { Router } from '@angular/router';
 export class ConfirtamtionSMSComponent implements OnInit {
 
   confirmSMS: FormGroup;
+  user: any;
+
   constructor(public authService: AuthService, private router: Router) {
     this.createForm();
   }
@@ -22,8 +26,6 @@ export class ConfirtamtionSMSComponent implements OnInit {
   }
 
   ngOnInit() { }
-
-
 
   acceptSMS() {
     console.log(this.confirmSMS);

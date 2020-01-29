@@ -60,8 +60,8 @@
 
           <div class="container_input transfer_title">
             <label class="title-transfer control">Tytułem </label>
-            <input formControlName="title" type="text" class="input_class" placeholder="Placeholder"
-              id="title_transfer" />
+            <input formControlName="title" type="text" class="input_class" [(ngModel)]="DataForm.accountName"
+              placeholder="Placeholder" id="title_transfer" />
             <p *ngIf="newPaymentForm.controls['title'].invalid && (newPaymentForm.controls['title'].dirty || newPaymentForm.controls['title'].touched)"
               class="info_about_error">
               <!-- <span *ngIf="newPaymentForm.controls.title?.errors.title">Wpisz poprawne hasło</span> -->

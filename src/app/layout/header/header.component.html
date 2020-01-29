@@ -16,7 +16,7 @@
       <button *ngIf="isUserLogged" class="btn_user">
         <img src="../../../assets/images/user.svg" alt="mail" />
       </button>
-      <p *ngIf="isUserLogged" class="user_name">Katarzyna Kowalewska</p>
+      <p *ngIf="isUserLogged" class="user_name">{{user.name}} {{user.surname}}</p>
       <a *ngIf="isUserLogged" class="log-out" (click)=logout()>Wyloguj</a>
       <a *ngIf="!isUserLogged" routerLink='/login' class="log-out">Zaloguj</a>
     </div>
