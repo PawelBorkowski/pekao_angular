@@ -39,6 +39,7 @@ export class AuthService {
                     console.log('Data:', snapshot.val());
                 });
             } else if (this.dbRef) {
+                this.profile$.next(null);
                 this.dbRef.off();
             }
         });

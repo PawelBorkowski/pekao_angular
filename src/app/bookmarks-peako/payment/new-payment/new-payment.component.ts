@@ -4,6 +4,7 @@ import * as IBAN from 'iban';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { AuthService } from 'src/app/login/auth.service';
+import { SendingFormsService } from '../sending-forms.service';
 
 @Component({
     selector: 'app-new-payment',
@@ -14,9 +15,7 @@ export class NewPaymentComponent implements OnInit {
     @ViewChild('form', { static: true }) form: NgForm;
     newPaymentForm: FormGroup;
 
-    public tasks;
-
-    constructor(private router: Router, private auth: AuthService) {
+    constructor(private router: Router, private auth: AuthService, private myService: SendingFormsService) {
         this.createForm();
     }
 
@@ -43,18 +42,19 @@ export class NewPaymentComponent implements OnInit {
 
     submit() {
         console.log(this.newPaymentForm);
-        const user = this.auth.user;
-        if (!user) {
-            this.router.navigate(['login']);
-            return;
-        }
-        const dbRefList = firebase
-            .database()
-            .ref('/users/' + user.uid)
-            .child('accounts/RANDOMSTRING/transactions');
+        this.myService.tempPayment = this.newPaymentForm.value;
+        // const user = this.auth.user;
+        // if (!user) {
+        //     this.router.navigate(['login']);
+        //     return;
+        // }
+        // const dbRefList = firebase
+        //     .database()
+        //     .ref('/users/' + user.uid)
+        //     .child('accounts/RANDOMSTRING/transactions');
 
-        console.log(this.newPaymentForm);
-        dbRefList.push(this.newPaymentForm.value);
+        // console.log(this.newPaymentForm);
+        // dbRefList.push(this.newPaymentForm.value);
 
         this.router.navigate(['payment/confirmSMS']);
     }
