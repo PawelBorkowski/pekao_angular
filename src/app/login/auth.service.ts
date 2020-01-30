@@ -15,6 +15,7 @@ export interface ICredentials {
 export class AuthService {
     public isUserLogged$ = new BehaviorSubject(false);
     public profile$ = new BehaviorSubject(null);
+    accounts$: any;
 
     get user(): User | null {
         return firebase.auth().currentUser;
