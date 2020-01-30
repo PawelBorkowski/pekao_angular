@@ -9,20 +9,20 @@
       </button>
     </div>
     <div class="header_bntt_tablet">
-      <button *ngIf="isUserLogged" class="btn_settings">
+      <button *ngIf="user" class="btn_settings">
         <img src="../../../assets/images/settings.svg" alt="settings" /></button>
-      <button *ngIf="isUserLogged" class="btn_email">
+      <button *ngIf="user" class="btn_email">
         <img src="../../../assets/images/mail.svg" alt="mail" /></button>
-      <button *ngIf="isUserLogged" class="btn_user">
+      <button *ngIf="user" class="btn_user">
         <img src="../../../assets/images/user.svg" alt="mail" />
       </button>
-      <p *ngIf="isUserLogged" class="user_name">{{user.name}} {{user.surname}}</p>
-      <a *ngIf="isUserLogged" class="log-out" (click)=logout()>Wyloguj</a>
-      <a *ngIf="!isUserLogged" routerLink='/login' class="log-out">Zaloguj</a>
+      <p *ngIf="user" class="user_name">{{user.name}} {{user.surname}}</p>
+      <a *ngIf="user" class="log-out" (click)=logout()>Wyloguj</a>
+      <a *ngIf="!user" routerLink='/login' class="log-out">Zaloguj</a>
     </div>
   </div>
 </header>
-<nav class="nav_bottom" *ngIf="isUserLogged">
+<nav class="nav_bottom" *ngIf="user">
   <div class="nav-btn-bottom container_nav">
     <ul class="items">
       <li class="item  ">
