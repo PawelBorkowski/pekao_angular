@@ -37,8 +37,8 @@
             <!-- first row -->
             <div *ngFor="let row of account.transactions | transformObjectToArr" class="name_items_in_column">
               <div class="kind_data">
-                <span>
-                  <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span>
+                <!-- <span>
+                  <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span> -->
                 <p class="data">{{row.date | date:'dd.MM'}}</p>
               </div>
               <div class="image_of_typ_pay">
