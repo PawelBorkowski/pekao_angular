@@ -37,6 +37,30 @@
 
         <div class="changing_order">
           <div class=" container_input amount_to_transfer">
+            <label class="recipientName control">Imię</label>
+            <input formControlName="recipientName" type="text" class="input_class name_input" placeholder="Imię"
+              id="amount" />
+            <p *ngIf="newPaymentForm.controls['recipientName'].invalid && (newPaymentForm.controls['recipientName'].dirty || newPaymentForm.controls['recipientName'].touched)"
+              class="info_about_error">
+
+              <span *ngIf="newPaymentForm.controls['recipientName'].errors.required">Wymagane imię</span>
+            </p>
+          </div>
+
+          <div class="container_input transfer_title">
+            <label class="title-transfer control">Nazwisko</label>
+            <input formControlName="recipientSurname" type="text" class="input_class" placeholder="Nazwisko"
+              id="title_transfer" />
+            <p *ngIf="newPaymentForm.controls['recipientSurname'].invalid && (newPaymentForm.controls['recipientSurname'].dirty || newPaymentForm.controls['recipientSurname'].touched)"
+              class="info_about_error">
+              <!-- <span *ngIf="newPaymentForm.controls.recipientSurname?.errors.recipientSurname">Wpisz poprawne hasło</span> -->
+              <span *ngIf="newPaymentForm.controls['recipientSurname'].errors.required">Wymagane nazwisko</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="changing_order">
+          <div class=" container_input amount_to_transfer">
             <label class="amount control">Kwota przelewu</label>
             <input formControlName="amount" type="text" class="input_class amount_input" placeholder="PLN"
               id="amount" />
@@ -60,7 +84,7 @@
 
           <div class="container_input transfer_title">
             <label class="title-transfer control">Tytułem </label>
-            <input formControlName="title" type="text" class="input_class" placeholder="Placeholder"
+            <input formControlName="title" type="text" class="input_class" placeholder="Tytuł przelewu"
               id="title_transfer" />
             <p *ngIf="newPaymentForm.controls['title'].invalid && (newPaymentForm.controls['title'].dirty || newPaymentForm.controls['title'].touched)"
               class="info_about_error">

@@ -35,24 +35,24 @@
               <p>Kwota</p>
             </div>
             <!-- first row -->
-            <div class="name_items_in_column">
+            <div *ngFor="let row of account.transactions | transformObjectToArr" class="name_items_in_column">
               <div class="kind_data">
                 <span>
                   <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span>
-                <!-- <p class="data">{{row.date | date:'dd.MM'}}</p> -->
+                <p class="data">{{row.date | date:'dd.MM'}}</p>
               </div>
               <div class="image_of_typ_pay">
                 <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" />
               </div>
               <div class="name_title">
-                <!-- <p>{{row.recipientName}}</p> -->
-                <p>Zwrot</p>
+                <p>{{row.recipientName}} {{row.recipientSurname}}</p>
+                <p>{{row.title}}</p>
               </div>
               <div class="category_of_transaction">
                 <p>wpływy wewn.</p>
               </div>
               <div class="amount_PLN">
-                <p>125,68 pln</p>
+                <p>{{row.amount}}</p>
               </div>
             </div>
             <!-- end first row -->

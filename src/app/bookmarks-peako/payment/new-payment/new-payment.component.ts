@@ -26,6 +26,8 @@ export class NewPaymentComponent implements OnInit {
   createForm() {
     this.newPaymentForm = new FormGroup({
       accNumber: new FormControl('SI 56 1910 0000 0123 438', [Validators.required, this.ValidateIban]),
+      recipientName: new FormControl(null, [Validators.required]),
+      recipientSurname: new FormControl(null, [Validators.required]),
       amount: new FormControl(null, [Validators.required]),
       recipientsAddress: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
@@ -52,8 +54,8 @@ export class NewPaymentComponent implements OnInit {
       recipientsAddress: this.newPaymentForm.value.recipientsAddress,
       isStandingOrder: this.newPaymentForm.value.isStandingOrder,
       nameOrder: this.newPaymentForm.value.nameOrder,
-      recipientName: 'ADAM',
-      recipientSurname: 'NOWAK',
+      recipientName: this.newPaymentForm.value.recipientName,
+      recipientSurname: this.newPaymentForm.value.recipientSurname,
     };
 
     this.myService.tempPayment = this.transaction;
