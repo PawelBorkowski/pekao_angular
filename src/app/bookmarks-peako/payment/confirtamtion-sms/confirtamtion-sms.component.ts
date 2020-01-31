@@ -6,36 +6,36 @@ import * as firebase from 'firebase';
 import { SendingFormsService } from '../sending-forms.service';
 
 @Component({
-    selector: 'app-confirtamtion-sms',
-    templateUrl: './confirtamtion-sms.component.html',
-    styleUrls: ['./confirtamtion-sms.component.scss']
+  selector: 'app-confirtamtion-sms',
+  templateUrl: './confirtamtion-sms.component.html',
+  styleUrls: ['./confirtamtion-sms.component.scss']
 })
 export class ConfirtamtionSMSComponent implements OnInit {
-    confirmSMS: FormGroup;
+  confirmSMS: FormGroup;
 
-    newPaymentForm: FormGroup;
+  newPaymentForm: FormGroup;
 
-    constructor(public auth: AuthService, private router: Router, private myService: SendingFormsService) {
-        this.createForm();
+  constructor(public auth: AuthService, private router: Router, private myService: SendingFormsService) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.confirmSMS = new FormGroup({
+      userSMS: new FormControl(null, [Validators.required])
+    });
+  }
+
+  ngOnInit() { }
+
+  acceptSMSS() {
+    console.log(this.confirmSMS);
+    const user = this.auth.user;
+    if (!user) {
+      this.router.navigate(['login']);
+      return;
     }
+    this.myService.acceptSMS();
 
-    createForm() {
-        this.confirmSMS = new FormGroup({
-            userSMS: new FormControl(null, [Validators.required])
-        });
-    }
-
-    ngOnInit() {}
-
-    acceptSMS() {
-        console.log(this.confirmSMS);
-        const user = this.auth.user;
-        if (!user) {
-            this.router.navigate(['login']);
-            return;
-        }
-        this.myService.acceptSMS();
-
-        this.router.navigate(['/payment']);
-    }
+    this.router.navigate(['/payment']);
+  }
 }

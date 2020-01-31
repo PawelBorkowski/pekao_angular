@@ -1,3 +1,4 @@
+import { AppModule } from './../../app.module';
 import { PaymentRoutingModule } from './payment-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { ConfirtamtionSMSComponent } from './confirtamtion-sms/confirtamtion-sms
     CommonModule,
     PaymentRoutingModule,
     ReactiveFormsModule
+
   ]
 })
 export class PaymentModule { }
