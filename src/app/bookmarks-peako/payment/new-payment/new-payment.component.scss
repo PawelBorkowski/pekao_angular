@@ -159,6 +159,12 @@
             text-align: right;
           }
         }
+
+        .name_input {
+          &::placeholder {
+            text-align: left;
+          }
+        }
       }
 
       @media(min-width:768px) {
@@ -190,7 +196,6 @@
             align-self: auto;
             margin-left: 20px;
           }
-
         }
 
         .order_name {
@@ -253,8 +258,6 @@
         border-radius: 4px;
         top: 26px;
         margin-right: 20px;
-
-
       }
 
       .right_arrow {

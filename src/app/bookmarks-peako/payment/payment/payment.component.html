@@ -1,64 +1,66 @@
 <router-outlet></router-outlet>
-<main *ngIf="authService.user" class="container_main">
-  <div class="all_sections">
-    <div class="informations">
-      <div class="inforamtion_account">
-        <p class="title">Rachunek podstawowy</p>
-        <h1 class="description">
-          Moje konto przekorzystne<span class="account-arrow"><img src="../../../assets/images/icon-right-arrow.svg"
-              alt="arrow" /></span>
-        </h1>
-        <p class="number_bank">12 3456 7890 1234 5678 9012 3456</p>
-      </div>
-      <div class="information_account2">
-        <p class="available_amount">dostęne środki</p>
-        <p class="amount">12 345,67 PLN</p>
-      </div>
-    </div>
-
-    <section>
-      <div class="twoButtons">
-        <a class="newPay" routerLink='new-payment' routerLinkActive='active'>nowa płatność</a>
-        <a href="#" class="history">historia</a>
-      </div>
-    </section>
-
-    <section>
-      <div class="table_of_payment">
-        <div class="rows_of_history">
-          <div class="titles_of_column_tablet">
-            <p>data</p>
-            <p>type</p>
-            <p>odbiorca/nadawca/tytuł</p>
-            <p>kategoria</p>
-            <p>Kwota</p>
-          </div>
-          <!-- first row -->
-          <div class="name_items_in_column" *ngFor="let row of [1, 2]">
-            <div class="kind_data">
-              <span>
-                <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span>
-              <p class="data">21.05</p>
-            </div>
-            <div class="image_of_typ_pay">
-              <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" />
-            </div>
-            <div class="name_title">
-              <p>Antonina Wójcik</p>
-              <p>Zwrot</p>
-            </div>
-            <div class="category_of_transaction">
-              <p>wpływy wewn.</p>
-            </div>
-            <div class="amount_PLN">
-              <p>125,68 pln</p>
-            </div>
-          </div>
-          <!-- end first row -->
+<main class="container_main">
+  <div class="content">
+    <div *ngFor="let account of accounts" class="all_sections">
+      <div class="informations">
+        <div class="inforamtion_account">
+          <p class="title">{{account.accountName}}</p>
+          <h1 class="description">
+            Moje konto przekorzystne<span class="account-arrow"><img src="../../../assets/images/icon-right-arrow.svg"
+                alt="arrow" /></span>
+          </h1>
+          <p class="number_bank">{{account.accountNumber}}</p>
+        </div>
+        <div class="information_account2">
+          <p class="available_amount">dostęne środki</p>
+          <p class="amount">12 345,67 PLN</p>
         </div>
       </div>
-      <a href="#" class="see-more">Pokaż więcej</a>
-    </section>
+
+      <section>
+        <div class="twoButtons">
+          <a class="newPay" routerLink='new-payment' routerLinkActive='active'>nowa płatność</a>
+          <a href="#" class="history">historia</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="table_of_payment">
+          <div class="rows_of_history">
+            <div class="titles_of_column_tablet">
+              <p>data</p>
+              <p>type</p>
+              <p>odbiorca/nadawca/tytuł</p>
+              <p>kategoria</p>
+              <p>Kwota</p>
+            </div>
+            <!-- first row -->
+            <div *ngFor="let row of account.transactions | transformObjectToArr" class="name_items_in_column">
+              <div class="kind_data">
+                <!-- <span>
+                  <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span> -->
+                <p class="data">{{row.date | date:'dd.MM'}}</p>
+              </div>
+              <div class="image_of_typ_pay">
+                <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" />
+              </div>
+              <div class="name_title">
+                <p>{{row.recipientName}} {{row.recipientSurname}}</p>
+                <p>{{row.title}}</p>
+              </div>
+              <div class="category_of_transaction">
+                <p>wpływy wewn.</p>
+              </div>
+              <div class="amount_PLN">
+                <p>{{row.amount}}</p>
+              </div>
+            </div>
+            <!-- end first row -->
+          </div>
+        </div>
+        <a href="#" class="see-more">Pokaż więcej</a>
+      </section>
+    </div>
   </div>
   <aside>
     <div class="offer-for-you">

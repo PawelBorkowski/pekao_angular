@@ -1,5 +1,7 @@
+import { IAccount } from './../../../interfaces/iaccount';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/login/auth.service';
+import { SendingFormsService } from '../sending-forms.service';
 
 @Component({
     selector: 'app-payment',
@@ -7,7 +9,18 @@ import { AuthService } from 'src/app/login/auth.service';
     styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-    constructor(public authService: AuthService) {}
-    user: { title: string };
-    ngOnInit() {}
+    accounts: IAccount[];
+
+    constructor(public authService: AuthService, private myService: SendingFormsService) {}
+
+    ngOnInit() {
+        this.authService.profile$.subscribe(profile => {
+            if (!profile) {
+                return;
+            }
+            this.accounts = Object.values(profile.accounts);
+
+            console.log('Moje konta', this.accounts);
+        });
+    }
 }

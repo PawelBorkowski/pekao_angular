@@ -8,9 +8,29 @@ main {
   //height: calc(100% - 387px);
   position: relative;
 
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    align-content: stretch;
+  }
+
   .all_sections {
     background-color: white;
     border: solid 1px #dbdbdb;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    align-self: stretch;
+    margin-bottom: 20px;
+
+    @media (min-width:1352px) {
+
+      margin: {
+        top: 0;
+        left: 0;
+      }
+    }
 
 
     .informations {
@@ -358,19 +378,11 @@ main {
       margin: {
         left: 20px;
         right: 20px;
-        top: 40px
+
       }
     }
 
-    @media (min-width:1352px) {
-      flex-grow: 1;
-      align-self: flex-start;
 
-      margin: {
-        top: 0;
-        left: 0;
-      }
-    }
   }
 
   aside {

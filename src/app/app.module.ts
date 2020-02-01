@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+
 firebase.initializeApp(environment.firebase);
 
 
@@ -18,13 +19,15 @@ firebase.initializeApp(environment.firebase);
 @NgModule({
   declarations: [
     AppComponent,
-    AccNumberValidatorDirective
+    AccNumberValidatorDirective,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

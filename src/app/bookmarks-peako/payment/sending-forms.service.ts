@@ -10,19 +10,13 @@ import { Router } from '@angular/router';
 export class SendingFormsService {
     tempPayment;
 
-    constructor(public auth: AuthService, private router: Router) {}
+    constructor(public auth: AuthService) {}
     acceptSMS() {
         const user = this.auth.user;
-
-        if (!user) {          // przekierowanie po akceprtacji 
-            this.router.navigate(['login']);
-            return;
-        }
-
         const dbRefList = firebase
             .database()
             .ref('/users/' + user.uid)
-            .child('accounts/RANDOMSTRING/transactions');
+            .child('accounts/ID-1/transactions');
 
         console.log(this.tempPayment);
         dbRefList.push(this.tempPayment);
