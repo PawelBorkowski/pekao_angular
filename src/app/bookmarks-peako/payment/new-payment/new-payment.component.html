@@ -62,11 +62,11 @@
         <div class="changing_order">
           <div class=" container_input amount_to_transfer">
             <label class="amount control">Kwota przelewu</label>
-            <input formControlName="amount" type="text" class="input_class amount_input" placeholder="PLN"
+            <input formControlName="amount" type="text" class="input_class amount_input" placeholder="00.00"
               id="amount" />
             <p *ngIf="newPaymentForm.controls['amount'].invalid && (newPaymentForm.controls['amount'].dirty || newPaymentForm.controls['amount'].touched)"
               class="info_about_error">
-              <!-- <span *ngIf="newPaymentForm.controls.amount?.errors.amount">Wpisz poprawne hasło</span> -->
+              <span *ngIf="newPaymentForm.controls.amount?.errors.pattern">Wpisz poprawny format kwoty</span>
               <span *ngIf="newPaymentForm.controls['amount'].errors.required">Wymagana kwota</span>
             </p>
           </div>

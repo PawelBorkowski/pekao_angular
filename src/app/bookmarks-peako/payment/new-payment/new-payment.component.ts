@@ -32,7 +32,7 @@ export class NewPaymentComponent implements OnInit {
             recipientsAddress: new FormControl(null),
             title: new FormControl(null, [Validators.required]),
             isStandingOrder: new FormControl(null),
-            nameOrder: new FormControl(null, [Validators.required])
+            nameOrder: new FormControl(null)
         });
     }
 
@@ -49,7 +49,7 @@ export class NewPaymentComponent implements OnInit {
         this.transaction = {
             date: new Date().valueOf(),
             type: 'from',
-            amount: this.newPaymentForm.value.amount,
+            amount: -this.newPaymentForm.value.amount,
             title: this.newPaymentForm.value.title,
             recipientsAddress: this.newPaymentForm.value.recipientsAddress,
             isStandingOrder: this.newPaymentForm.value.isStandingOrder,

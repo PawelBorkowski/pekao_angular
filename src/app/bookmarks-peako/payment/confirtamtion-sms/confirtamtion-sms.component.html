@@ -9,7 +9,7 @@
           <input type="password" formControlName="userSMS" class="input_class" placeholder="Hasło SMS" />
           <p *ngIf="confirmSMS.controls['userSMS'].invalid && (confirmSMS.controls['userSMS'].dirty || confirmSMS.controls['userSMS'].touched)"
             class="info_about_error">
-            <span *ngIf="confirmSMS.controls.userSMS?.errors.userSMS">Wpisz poprawne hasło SMS</span>
+            <span *ngIf="confirmSMS.controls.userSMS?.errors.pattern">Wpisz poprawne hasło SMS</span>
             <span *ngIf="confirmSMS.controls['userSMS'].errors.required">Wymagane hasło SMS</span>
           </p>
 

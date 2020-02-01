@@ -21,7 +21,7 @@ export class ConfirtamtionSMSComponent implements OnInit {
 
     createForm() {
         this.confirmSMS = new FormGroup({
-            userSMS: new FormControl(null, [Validators.required])
+            userSMS: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')])
         });
     }
 

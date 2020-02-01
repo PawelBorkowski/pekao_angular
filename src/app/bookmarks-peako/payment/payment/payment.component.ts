@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
 
     amountCalculated;
     objectAmount: object;
-    amountMY = 100000;
+    amountMY = 0;
 
     constructor(public authService: AuthService, private myService: SendingFormsService) {}
 
@@ -28,12 +28,11 @@ export class PaymentComponent implements OnInit {
             this.objectAmount = Object.values(profile.accounts['ID-1'].transactions);
 
             for (const key in this.objectAmount) {
-                if (this.objectAmount[key].type === 'from') {
-                    this.objectAmount[key].amount = +this.objectAmount[key].amount * -1;
-                }
+                // if (this.objectAmount[key].type === 'from') {
+                //     this.objectAmount[key].amount = +this.objectAmount[key].amount * -1;
+                // }
 
                 total += +this.objectAmount[key].amount;
-                // console.log('kwota', this.objectAmount[key].amount * -1);
             }
 
             this.amountCalculated = this.amountMY + total;
