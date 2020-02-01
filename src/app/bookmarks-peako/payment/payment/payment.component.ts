@@ -11,7 +11,9 @@ import { SendingFormsService } from '../sending-forms.service';
 export class PaymentComponent implements OnInit {
     accounts: IAccount[];
 
-    amountMY: string;
+    amountCalculated;
+    objectAmount: object;
+    amountMY = 100000;
 
     constructor(public authService: AuthService, private myService: SendingFormsService) {}
 
@@ -21,13 +23,23 @@ export class PaymentComponent implements OnInit {
                 return;
             }
             this.accounts = Object.values(profile.accounts);
-            let total = 0;
 
-            for (const key in profile.accounts['ID-1'].transaction) {
+            let total = 0;
+            this.objectAmount = Object.values(profile.accounts['ID-1'].transactions);
+
+            for (const key in this.objectAmount) {
+                if (this.objectAmount[key].type === 'from') {
+                    this.objectAmount[key].amount = +this.objectAmount[key].amount * -1;
+                }
+
+                total += +this.objectAmount[key].amount;
+                // console.log('kwota', this.objectAmount[key].amount * -1);
             }
 
-            console.log('Moje kasa', this.amountMY);
+            this.amountCalculated = this.amountMY + total;
+            console.log(total);
             console.log('Moje konta', this.accounts);
+            console.log('Moje kasa', this.objectAmount);
         });
     }
 }

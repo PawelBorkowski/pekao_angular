@@ -13,7 +13,7 @@
         </div>
         <div class="information_account2">
           <p class="available_amount">dostęne środki</p>
-          <p class="amount">{{amountMY}}</p>
+          <p class="amount">{{amountCalculated | formattingAmount}} PLN</p>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
                 <p>obciążenie</p>
               </div>
               <div *ngIf="row.type === 'from'" class="amount_PLN">
-                <p>{{row.amount*-1 | formattingAmount}} zł</p>
+                <p>{{row.amount | formattingAmount}} zł</p>
               </div>
               <div *ngIf="row.type !== 'from'" class="amount_PLN">
                 <p>{{row.amount | formattingAmount}} zł</p>

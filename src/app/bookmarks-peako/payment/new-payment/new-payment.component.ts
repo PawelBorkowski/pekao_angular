@@ -48,7 +48,7 @@ export class NewPaymentComponent implements OnInit {
         console.log(this.newPaymentForm);
         this.transaction = {
             date: new Date().valueOf(),
-            type: 'to',
+            type: 'from',
             amount: this.newPaymentForm.value.amount,
             title: this.newPaymentForm.value.title,
             recipientsAddress: this.newPaymentForm.value.recipientsAddress,
