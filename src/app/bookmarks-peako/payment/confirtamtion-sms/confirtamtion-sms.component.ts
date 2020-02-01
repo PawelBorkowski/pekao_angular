@@ -29,11 +29,11 @@ export class ConfirtamtionSMSComponent implements OnInit {
 
     acceptSMS() {
         console.log(this.confirmSMS);
-        const user = this.auth.user;
-        if (!user) {
-            this.router.navigate(['login']);
-            return;
-        }
+        // const user = this.auth.user;
+        // if (!user) {
+        //     this.router.navigate(['login']);
+        //     return;
+        // }
         this.myService.acceptSMS();
 
         this.router.navigate(['/payment']);

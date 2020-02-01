@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import * as firebase from 'firebase';
 import { AuthService } from 'src/app/login/auth.service';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -9,9 +10,15 @@ import { AuthService } from 'src/app/login/auth.service';
 export class SendingFormsService {
     tempPayment;
 
-    constructor(public auth: AuthService) {}
+    constructor(public auth: AuthService, private router: Router) {}
     acceptSMS() {
         const user = this.auth.user;
+
+        if (!user) {          // przekierowanie po akceprtacji 
+            this.router.navigate(['login']);
+            return;
+        }
+
         const dbRefList = firebase
             .database()
             .ref('/users/' + user.uid)
