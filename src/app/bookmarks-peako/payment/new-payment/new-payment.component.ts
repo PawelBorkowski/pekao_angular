@@ -8,71 +8,71 @@ import { AuthService } from 'src/app/login/auth.service';
 import { SendingFormsService } from '../sending-forms.service';
 
 @Component({
-  selector: 'app-new-payment',
-  templateUrl: './new-payment.component.html',
-  styleUrls: ['./new-payment.component.scss']
+    selector: 'app-new-payment',
+    templateUrl: './new-payment.component.html',
+    styleUrls: ['./new-payment.component.scss']
 })
 export class NewPaymentComponent implements OnInit {
-  @ViewChild('form', { static: true }) form: NgForm;
-  newPaymentForm: FormGroup;
-  transaction: ITransaction;
+    @ViewChild('form', { static: true }) form: NgForm;
+    newPaymentForm: FormGroup;
+    transaction: ITransaction;
 
-  constructor(private router: Router, private auth: AuthService, private myService: SendingFormsService) {
-    this.createForm();
-  }
-
-  ngOnInit() { }
-
-  createForm() {
-    this.newPaymentForm = new FormGroup({
-      accNumber: new FormControl('SI 56 1910 0000 0123 438', [Validators.required, this.ValidateIban]),
-      recipientName: new FormControl(null, [Validators.required]),
-      recipientSurname: new FormControl(null, [Validators.required]),
-      amount: new FormControl(null, [Validators.required]),
-      recipientsAddress: new FormControl(null),
-      title: new FormControl(null, [Validators.required]),
-      isStandingOrder: new FormControl(null),
-      nameOrder: new FormControl(null, [Validators.required])
-    });
-  }
-
-  ValidateIban(control: AbstractControl) {
-    const isValid = IBAN.isValid(control.value);
-    if (isValid) {
-      return null;
+    constructor(private router: Router, private auth: AuthService, private myService: SendingFormsService) {
+        this.createForm();
     }
-    return { accNumber: true };
-  }
 
-  submit() {
-    console.log(this.newPaymentForm);
-    this.transaction = {
-      date: new Date().valueOf(),
-      type: 'to',
-      amount: this.newPaymentForm.value.amount,
-      title: this.newPaymentForm.value.title,
-      recipientsAddress: this.newPaymentForm.value.recipientsAddress,
-      isStandingOrder: this.newPaymentForm.value.isStandingOrder,
-      nameOrder: this.newPaymentForm.value.nameOrder,
-      recipientName: this.newPaymentForm.value.recipientName,
-      recipientSurname: this.newPaymentForm.value.recipientSurname,
-    };
+    ngOnInit() {}
 
-    this.myService.tempPayment = this.transaction;
-    console.log(this.transaction);
-    // const user = this.auth.user;
-    // if (!user) {
-    //     this.router.navigate(['login']);
-    //     return;
-    // }
-    // const dbRefList = firebase
-    //     .database()
-    //     .ref('/users/' + user.uid)
-    //     .child('accounts/RANDOMSTRING/transactions');
+    createForm() {
+        this.newPaymentForm = new FormGroup({
+            accNumber: new FormControl('SI 56 1910 0000 0123 438', [Validators.required, this.ValidateIban]),
+            recipientName: new FormControl(null, [Validators.required]),
+            recipientSurname: new FormControl(null, [Validators.required]),
+            amount: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]*$')]),
+            recipientsAddress: new FormControl(null),
+            title: new FormControl(null, [Validators.required]),
+            isStandingOrder: new FormControl(null),
+            nameOrder: new FormControl(null, [Validators.required])
+        });
+    }
 
-    // console.log(this.newPaymentForm);
-    // dbRefList.push(this.newPaymentForm.value);
+    ValidateIban(control: AbstractControl) {
+        const isValid = IBAN.isValid(control.value);
+        if (isValid) {
+            return null;
+        }
+        return { accNumber: true };
+    }
 
-    this.router.navigate(['payment/confirmSMS']);
-  }
+    submit() {
+        console.log(this.newPaymentForm);
+        this.transaction = {
+            date: new Date().valueOf(),
+            type: 'to',
+            amount: this.newPaymentForm.value.amount,
+            title: this.newPaymentForm.value.title,
+            recipientsAddress: this.newPaymentForm.value.recipientsAddress,
+            isStandingOrder: this.newPaymentForm.value.isStandingOrder,
+            nameOrder: this.newPaymentForm.value.nameOrder,
+            recipientName: this.newPaymentForm.value.recipientName,
+            recipientSurname: this.newPaymentForm.value.recipientSurname
+        };
+
+        this.myService.tempPayment = this.transaction;
+        console.log(this.transaction);
+        // const user = this.auth.user;
+        // if (!user) {
+        //     this.router.navigate(['login']);
+        //     return;
+        // }
+        // const dbRefList = firebase
+        //     .database()
+        //     .ref('/users/' + user.uid)
+        //     .child('accounts/RANDOMSTRING/transactions');
+
+        // console.log(this.newPaymentForm);
+        // dbRefList.push(this.newPaymentForm.value);
+
+        this.router.navigate(['payment/confirmSMS']);
+    }
 }

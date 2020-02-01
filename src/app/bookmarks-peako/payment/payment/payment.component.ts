@@ -11,6 +11,8 @@ import { SendingFormsService } from '../sending-forms.service';
 export class PaymentComponent implements OnInit {
     accounts: IAccount[];
 
+    amountMY: string;
+
     constructor(public authService: AuthService, private myService: SendingFormsService) {}
 
     ngOnInit() {
@@ -19,7 +21,12 @@ export class PaymentComponent implements OnInit {
                 return;
             }
             this.accounts = Object.values(profile.accounts);
+            let total = 0;
 
+            for (const key in profile.accounts['ID-1'].transaction) {
+            }
+
+            console.log('Moje kasa', this.amountMY);
             console.log('Moje konta', this.accounts);
         });
     }

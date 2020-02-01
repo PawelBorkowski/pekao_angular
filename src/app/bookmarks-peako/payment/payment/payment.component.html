@@ -13,7 +13,7 @@
         </div>
         <div class="information_account2">
           <p class="available_amount">dostęne środki</p>
-          <p class="amount">12 345,67 PLN</p>
+          <p class="amount">{{amountMY}}</p>
         </div>
       </div>
 
@@ -42,17 +42,26 @@
                 <p class="data">{{row.date | date:'dd.MM'}}</p>
               </div>
               <div class="image_of_typ_pay">
-                <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" />
+                <img *ngIf="row.type !== 'from'" src="../../../assets/images/incoming.svg" class="incoming_cash"
+                  alt="incoming_cash" />
+                <img *ngIf="row.type === 'from'" src="../../../assets/images/outcash.svg" class="incoming_cash"
+                  alt="incoming_cash" />
               </div>
               <div class="name_title">
                 <p>{{row.recipientName}} {{row.recipientSurname}}</p>
                 <p>{{row.title}}</p>
               </div>
-              <div class="category_of_transaction">
+              <div *ngIf="row.type !== 'from'" class="category_of_transaction category_of_transaction_in ">
                 <p>wpływy wewn.</p>
               </div>
-              <div class="amount_PLN">
-                <p>{{row.amount}}</p>
+              <div *ngIf="row.type === 'from'" class="category_of_transaction category_of_transaction_out">
+                <p>obciążenie</p>
+              </div>
+              <div *ngIf="row.type === 'from'" class="amount_PLN">
+                <p>{{row.amount*-1 | formattingAmount}} zł</p>
+              </div>
+              <div *ngIf="row.type !== 'from'" class="amount_PLN">
+                <p>{{row.amount | formattingAmount}} zł</p>
               </div>
             </div>
             <!-- end first row -->

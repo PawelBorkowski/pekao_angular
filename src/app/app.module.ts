@@ -9,26 +9,15 @@ import { environment } from 'src/environments/environment';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import { FormattingAmountPipe } from './pipe/formatting-amount.pipe';
 
 firebase.initializeApp(environment.firebase);
 
-
-
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    AccNumberValidatorDirective,
+    declarations: [AppComponent, AccNumberValidatorDirective],
+    imports: [BrowserModule, AppRoutingModule, LayoutModule],
 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    LayoutModule
-  ],
-
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

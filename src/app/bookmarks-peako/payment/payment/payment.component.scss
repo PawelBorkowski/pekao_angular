@@ -344,9 +344,17 @@ main {
             font-size: 10px;
             line-height: 1.5;
             letter-spacing: 0.12px;
-            color: #3cae64;
+            // color: #3cae64;
             width: 90px;
           }
+        }
+
+        .category_of_transaction_in {
+          color: #3cae64
+        }
+
+        .category_of_transaction_out {
+          color: $brand-color;
         }
 
         @media(min-width: 768px) {

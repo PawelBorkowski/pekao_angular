@@ -1,7 +1,7 @@
 <section class="modal-wrap ">
   <div class="main">
 
-    <form [formGroup]="confirmSMS" (ngSubmit)="acceptSMS(confirmSMS)" class="logIn">
+    <form [formGroup]="confirmSMS" (ngSubmit)="acceptSMS()" class="logIn">
       <div class="container">
 
         <div class="container_input">
@@ -15,7 +15,7 @@
 
           <!-- <div class="click_next"> -->
           <button type="submit" [disabled]="confirmSMS.invalid" class="click_next"
-            (click)="acceptSMSS(confirmSMS)">Potwierdź</button>
+            (click)="acceptSMS()">Potwierdź</button>
           <!-- </div> -->
         </div>
       </div>
