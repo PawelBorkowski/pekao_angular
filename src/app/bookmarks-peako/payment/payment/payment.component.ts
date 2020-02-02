@@ -14,7 +14,8 @@ export class PaymentComponent implements OnInit {
   amountCalculated;
   objectAmount: object;
   amountMY = 0;
-
+  status = false;
+  id: any;
   constructor(public authService: AuthService, private myService: SendingFormsService) { }
 
   ngOnInit() {
@@ -41,11 +42,9 @@ export class PaymentComponent implements OnInit {
       console.log('Moje kasa', this.objectAmount);
     });
   }
-  activeClass() {
 
-
-    document.querySelector('.details-of-payment').classList.toggle('active');
-
-
+  addClass(change) {
+    change.active = !change.active;
   }
+
 }

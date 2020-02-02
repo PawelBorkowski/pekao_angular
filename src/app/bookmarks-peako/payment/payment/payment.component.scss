@@ -368,16 +368,6 @@ main {
           flex-basis: 100%;
           margin-top: 20px;
 
-
-          .active {
-            display: flex;
-          }
-
-          .noactive {
-            display: none;
-          }
-
-
           .details {
             display: flex;
             flex-basis: 100%;
@@ -426,6 +416,11 @@ main {
             }
           }
         }
+
+        .active {
+          display: flex;
+        }
+
       }
     }
 

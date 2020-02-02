@@ -35,8 +35,8 @@
               <p>Kwota</p>
             </div>
             <!-- first row -->
-            <div *ngFor="let row of account.transactions | transformObjectToArr" class="name_items_in_column"
-              (click)="activeClass()">
+            <div *ngFor="let row of account.transactions | transformObjectToArr; let change of details"
+              class="name_items_in_column" (click)="addClass(change)">
               <div class="kind_data">
                 <p class="data">{{row.date | date:'dd.MM'}}</p>
               </div>
@@ -62,7 +62,7 @@
               <div *ngIf="row.type !== 'from'" class="amount_PLN">
                 <p>{{row.amount | formattingAmount}} zł</p>
               </div>
-              <div class="details-of-payment  noactive">
+              <div class="details-of-payment " [ngClass]="{'active': change.active }" name="change">
                 <div class="details">
                   <div class="typeTransfer">
                     <p class="description-field">typ przelewu:</p>
