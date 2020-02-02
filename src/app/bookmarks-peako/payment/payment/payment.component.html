@@ -35,10 +35,9 @@
               <p>Kwota</p>
             </div>
             <!-- first row -->
-            <div *ngFor="let row of account.transactions | transformObjectToArr" class="name_items_in_column">
+            <div *ngFor="let row of account.transactions | transformObjectToArr" class="name_items_in_column"
+              (click)="activeClass()">
               <div class="kind_data">
-                <!-- <span>
-                  <img src="../../../assets/images/incoming.svg" class="incoming_cash" alt="incoming_cash" /></span> -->
                 <p class="data">{{row.date | date:'dd.MM'}}</p>
               </div>
               <div class="image_of_typ_pay">
@@ -55,7 +54,7 @@
                 <p>wpływy wewn.</p>
               </div>
               <div *ngIf="row.type === 'from'" class="category_of_transaction category_of_transaction_out">
-                <p>obciążenie</p>
+                <p>Przelew wychodzący</p>
               </div>
               <div *ngIf="row.type === 'from'" class="amount_PLN">
                 <p>{{row.amount | formattingAmount}} zł</p>
@@ -63,7 +62,35 @@
               <div *ngIf="row.type !== 'from'" class="amount_PLN">
                 <p>{{row.amount | formattingAmount}} zł</p>
               </div>
+              <div class="details-of-payment  noactive">
+                <div class="details">
+                  <div class="typeTransfer">
+                    <p class="description-field">typ przelewu:</p>
+                    <p *ngIf="row.type === 'from'" class="category_of_transaction_out filled-field">Przelew wychodzący
+                    </p>
+                    <p *ngIf="row.type !== 'from'" class=" category_of_transaction_in filled-field ">Przelew
+                      przychodzący</p>
+                  </div>
+                  <div class="personAccNumber">
+                    <p class="description-field">numer rachunku:</p>
+                    <p class="filled-field">{{row.accNumber}}</p>
+                  </div>
+                  <div class="personInfo">
+                    <p class="description-field">imię i nazwisko:</p>
+                    <p class="filled-field">{{row.recipientName}} {{row.recipientSurname}}</p>
+                  </div>
+                  <div class="personAddress">
+                    <p class="description-field">Adres:</p>
+                    <p class="filled-field">{{row.recipientsAddress}}</p>
+                  </div>
+                  <div class="transactionTitle">
+                    <p class="description-field">Tytuł:</p>
+                    <p class="filled-field">{{row.title}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
+
             <!-- end first row -->
           </div>
         </div>

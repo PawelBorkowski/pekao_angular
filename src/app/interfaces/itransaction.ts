@@ -8,4 +8,5 @@ export interface ITransaction {
   nameOrder: string;
   recipientName: string;
   recipientSurname: string;
+  accNumber: string;
 }

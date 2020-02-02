@@ -242,6 +242,7 @@ main {
       .name_items_in_column {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         margin: 17.5px 23.5px 0 21px;
         padding-bottom: 14.5px;
@@ -359,6 +360,71 @@ main {
 
         @media(min-width: 768px) {
           margin: 0 20px 0 20px;
+        }
+
+        .details-of-payment {
+
+          display: none;
+          flex-basis: 100%;
+          margin-top: 20px;
+
+
+          .active {
+            display: flex;
+          }
+
+          .noactive {
+            display: none;
+          }
+
+
+          .details {
+            display: flex;
+            flex-basis: 100%;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+
+            @media(min-width: 768px) {
+              margin: 0 20px;
+              flex-direction: row;
+              justify-content: center;
+
+              .personAccNumber,
+              .personInfo,
+              .personAddress,
+              .transactionTitle {
+                flex-basis: 45%;
+              }
+            }
+
+            .typeTransfer {
+              @media(min-width: 768px) {
+                display: none;
+
+              }
+            }
+
+            .description-field {
+              font-size: 14px;
+              font-weight: 500;
+              text-transform: uppercase;
+              text-align: center;
+              margin-bottom: 5px;
+              color: #858585;
+            }
+
+            .filled-field {
+              font-size: 16px;
+              font-weight: 600;
+              margin-bottom: 7px;
+              margin-left: 2px;
+              // color: #858585;
+              text-align: center;
+            }
+          }
         }
       }
     }
