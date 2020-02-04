@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/login/auth.service';
 import { SendingFormsService } from '../sending-forms.service';
 
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
+
 @Component({
     selector: 'app-payment',
     templateUrl: './payment.component.html',
@@ -18,6 +21,20 @@ export class PaymentComponent implements OnInit {
     id: any;
     end: number = 5;
     start: number = 0;
+
+    public barChartOptions: ChartOptions = {
+        responsive: true
+    };
+    public barChartLabels: Label[] = ['Przelewy'];
+    public barChartType: ChartType = 'bar';
+    public barChartLegend = true;
+    public barChartPlugins = [];
+
+    public barChartData: ChartDataSets[] = [
+        { data: [this.amountCalculated], label: 'Wydatki' },
+        { data: [2800], label: 'Przychody' }
+    ];
+
     constructor(public authService: AuthService, private myService: SendingFormsService) {}
 
     ngOnInit() {
@@ -31,15 +48,17 @@ export class PaymentComponent implements OnInit {
             this.objectAmount = Object.values(profile.accounts['ID-1'].transactions);
 
             for (const key in this.objectAmount) {
-                // if (this.objectAmount[key].type === 'from') {
-                //     this.objectAmount[key].amount = +this.objectAmount[key].amount * -1;
-                // }
-
                 total += +this.objectAmount[key].amount;
+
+                if (this.objectAmount[key].amount < 0) {
+                    // this.objectAmount[key].amount = +this.objectAmount[key].amount * -1;
+                    // let spent =
+                }
             }
 
             this.amountCalculated = this.amountMY + total;
             console.log(total);
+
             console.log('Moje konta', this.accounts);
             console.log('Moje kasa', this.objectAmount);
         });

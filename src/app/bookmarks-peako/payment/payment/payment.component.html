@@ -35,7 +35,8 @@
               <p>Kwota</p>
             </div>
             <!-- first row -->
-            <div *ngFor="let row of account.transactions | transformObjectToArr | slice:start:end ; let change of details"
+            <div
+              *ngFor="let row of account.transactions | transformObjectToArr | slice:start:end ; let change of details"
               class="name_items_in_column" (click)="addClass(change)">
               <div class="kind_data">
                 <p class="data">{{row.date | date:'dd.MM'}}</p>
@@ -114,6 +115,11 @@
     </div>
     <div class="spending-analysis">
       <p class="title-analysis-spending">Analiza wydatków</p>
+      <div style="display: block;">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+      </div>
     </div>
   </aside>
 </main>
