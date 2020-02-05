@@ -5,6 +5,7 @@ import { SendingFormsService } from '../sending-forms.service';
 
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import * as Chart from 'chart.js';
 
 @Component({
     selector: 'app-payment',
@@ -16,25 +17,30 @@ export class PaymentComponent implements OnInit {
 
     amountCalculated;
     objectAmount: object;
+    objectAmount2: object;
     amountMY = 0;
     status = false;
     id: any;
     end: number = 5;
     start: number = 0;
+    spend: number;
+    revenues;
 
-    public barChartOptions: ChartOptions = {
-        responsive: true
-    };
-    public barChartLabels: Label[] = ['Przelewy'];
-    public barChartType: ChartType = 'bar';
-    public barChartLegend = true;
-    public barChartPlugins = [];
+    // public barChartOptions: ChartOptions = {
+    //     responsive: true
+    // };
+    // public barChartLabels: Label[] = ['Przelewy'];
+    // public barChartType: ChartType = 'bar';
+    // public barChartLegend = true;
+    // public barChartPlugins = [];
 
-    public barChartData: ChartDataSets[] = [
-        { data: [this.amountCalculated], label: 'Wydatki' },
-        { data: [2800], label: 'Przychody' }
-    ];
+    // public barChartData: ChartDataSets[] = [
+    //     { data: [this.spend], label: 'Wydatki' },
+    //     { data: [this.revenues], label: 'Przychody' }
+    // ];
 
+    chart: Chart;
+    name = 'Angular 5 chartjs';
     constructor(public authService: AuthService, private myService: SendingFormsService) {}
 
     ngOnInit() {
@@ -45,14 +51,18 @@ export class PaymentComponent implements OnInit {
             this.accounts = Object.values(profile.accounts);
 
             let total = 0;
+            let spend = 0;
+            let revenues = 0;
+
             this.objectAmount = Object.values(profile.accounts['ID-1'].transactions);
 
             for (const key in this.objectAmount) {
                 total += +this.objectAmount[key].amount;
 
                 if (this.objectAmount[key].amount < 0) {
-                    // this.objectAmount[key].amount = +this.objectAmount[key].amount * -1;
-                    // let spent =
+                    spend += this.objectAmount[key].amount * -1;
+                } else {
+                    revenues += this.objectAmount[key].amount;
                 }
             }
 
@@ -61,6 +71,37 @@ export class PaymentComponent implements OnInit {
 
             console.log('Moje konta', this.accounts);
             console.log('Moje kasa', this.objectAmount);
+            console.log('Moje kasa', spend);
+            console.log('Moje kasa', revenues);
+        });
+
+        this.chart = new Chart('canvas', {
+            type: 'pie',
+            data: {
+                labels: ['Wpływy', 'Wydatki'],
+                datasets: [
+                    {
+                        label: 'test',
+                        data: [150, 693],
+                        backgroundColor: ['#0074D9', '#FF4136']
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: false,
+                    text: 'Color test'
+                },
+                legend: {
+                    position: 'bottom',
+                    display: true,
+                    fullWidth: true,
+                    labels: {
+                        fontSize: 11
+                    }
+                },
+                scales: {}
+            }
         });
     }
 

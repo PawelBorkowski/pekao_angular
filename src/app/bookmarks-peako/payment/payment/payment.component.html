@@ -115,10 +115,14 @@
     </div>
     <div class="spending-analysis">
       <p class="title-analysis-spending">Analiza wydatków</p>
-      <div style="display: block;">
-        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-          [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-        </canvas>
+
+      <div class="container">
+
+        <div class="card">
+          <div class="card-body p-1 m-0">
+            <canvas id="canvas"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </aside>
