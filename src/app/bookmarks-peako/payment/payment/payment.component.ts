@@ -27,18 +27,6 @@ export class PaymentComponent implements OnInit {
   revenues;
   total: number;
 
-  // public barChartOptions: ChartOptions = {
-  //     responsive: true
-  // };
-  // public barChartLabels: Label[] = ['Przelewy'];
-  // public barChartType: ChartType = 'bar';
-  // public barChartLegend = true;
-  // public barChartPlugins = [];
-
-  // public barChartData: ChartDataSets[] = [
-  //     { data: [this.spend], label: 'Wydatki' },
-  //     { data: [this.revenues], label: 'Przychody' }
-  // ];
 
   chart: Chart;
   name = 'Angular 5 chartjs';
