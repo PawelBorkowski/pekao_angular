@@ -1,7 +1,7 @@
 @import '../../../styles/core';
 
 footer {
-   display: fixed;
+  display: fixed;
   // position: absolute;
   // bottom: -200px;
   background-color: #f4f4f4;
@@ -17,7 +17,7 @@ footer {
     background-color: #979797;
   }
 
-  .container_footer {
+  .container-footer {
     margin: 0 15px 0 15px;
     padding-top: 35px;
     padding-bottom: 25px;
@@ -35,7 +35,7 @@ footer {
       max-width: 1220px;
     }
 
-    .list_links {
+    .list-links {
       text-align: center;
       font-size: 14px;
       line-height: 1.71;
@@ -99,7 +99,7 @@ footer {
       }
     }
 
-    .bank_credibility {
+    .bank-credibility {
       font-size: 9px;
       color: #747474;
       text-transform: uppercase;

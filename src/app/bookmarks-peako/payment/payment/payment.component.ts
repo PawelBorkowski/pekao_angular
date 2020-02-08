@@ -60,6 +60,7 @@ export class PaymentComponent implements OnInit {
       for (const key in this.objectAmount) {
         this.total += +this.objectAmount[key].amount;
 
+
         if (this.objectAmount[key].amount < 0) {
           spend += this.objectAmount[key].amount * -1;
         } else {
@@ -67,13 +68,13 @@ export class PaymentComponent implements OnInit {
         }
       }
 
-      this.amountCalculated = this.amountMY + total;
+      this.amountCalculated = this.amountMY + revenues - spend;
       console.log(total);
-
+      console.log('Moje kasa', this.amountCalculated);
       console.log('Moje konta', this.accounts);
       console.log('Moje kasa', this.objectAmount);
-      console.log('Moje kasa', spend);
-      console.log('Moje kasa', revenues);
+      console.log('wydatki', spend);
+      console.log('przychody', revenues);
 
 
       this.chart = new Chart('canvas', {

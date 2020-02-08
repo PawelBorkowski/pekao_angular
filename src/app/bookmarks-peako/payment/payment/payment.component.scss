@@ -5,7 +5,7 @@ main {
   min-width: 320px;
   background-color: #f4f4f4;
   margin-bottom: 20px;
-  //height: calc(100% - 387px);
+  //height: calc(100vh - (193px + 56px));
   position: relative;
 
   .content {
@@ -15,7 +15,7 @@ main {
     align-content: stretch;
   }
 
-  .all_sections {
+  .all-sections {
     background-color: white;
     border: solid 1px #dbdbdb;
     display: flex;
@@ -44,7 +44,7 @@ main {
       }
 
       &::after {
-        @include line_after;
+        @include line-after;
 
         @media(min-width: 768px) {
           height: 0;
@@ -73,14 +73,14 @@ main {
         }
       }
 
-      .number_bank {
+      .number-bank {
         font-size: 10px;
         letter-spacing: 1px;
         margin-top: 3px;
         color: #858585;
       }
 
-      .available_amount {
+      .available-amount {
         font-size: 10px;
         letter-spacing: 1px;
         color: #2f3234;
@@ -117,7 +117,7 @@ main {
           margin-top: 22px;
         }
 
-        .available_amount {
+        .available-amount {
           margin-top: 22px;
           text-align: right;
         }
@@ -137,7 +137,7 @@ main {
       position: relative;
 
       &::after {
-        @include line_after;
+        @include line-after;
 
         @media(min-width: 768px) {
           height: 0;
@@ -182,8 +182,8 @@ main {
       }
     }
 
-    .rows_of_history {
-      .titles_of_column_tablet {
+    .rows-of-history {
+      .titles-of-column-tablet {
         display: none;
         position: relative;
         padding-bottom: 4.5px;
@@ -228,10 +228,8 @@ main {
             width: 200px
           }
 
-
-
           &::after {
-            @include line_after;
+            @include line-after;
             left: -20px;
             right: -20px;
           }
@@ -239,7 +237,7 @@ main {
         }
       }
 
-      .name_items_in_column {
+      .name-items-in-column {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -249,7 +247,7 @@ main {
         position: relative;
 
         &::after {
-          @include line_after;
+          @include line-after;
           left: -20px;
           right: -20px;
         }
@@ -258,7 +256,7 @@ main {
           margin-top: 18px;
         }
 
-        .kind_data {
+        .kind-data {
           @include dataAndType;
           text-align: left;
 
@@ -269,7 +267,7 @@ main {
             @include boldTextInHistory;
           }
 
-          .incoming_cash {
+          .incoming-cash {
             margin-bottom: 2px;
             width: 13px;
             height: 13px;
@@ -291,7 +289,7 @@ main {
           }
         }
 
-        .image_of_typ_pay {
+        .image-of-typ-pay {
           display: none;
 
           @media(min-width: 768px) {
@@ -299,7 +297,7 @@ main {
             align-items: center;
             width: 60px;
 
-            .incoming_cash {
+            .incoming-cash {
               width: 17px;
               height: 16px;
               margin: 0 auto;
@@ -307,7 +305,7 @@ main {
           }
         }
 
-        .name_title {
+        .name-title {
           flex-grow: 1;
           margin-left: 20px;
 
@@ -322,7 +320,7 @@ main {
           }
         }
 
-        .amount_PLN {
+        .amount-PLN {
           @include boldTextInHistory;
           text-transform: uppercase;
           display: flex;
@@ -335,7 +333,7 @@ main {
           }
         }
 
-        .category_of_transaction {
+        .category-of-transaction {
           display: none;
 
           @media(min-width: 768px) {
@@ -350,11 +348,11 @@ main {
           }
         }
 
-        .category_of_transaction_in {
+        .category-of-transaction-in {
           color: #3cae64
         }
 
-        .category_of_transaction_out {
+        .category-of-transaction-out {
           color: $brand-color;
         }
 

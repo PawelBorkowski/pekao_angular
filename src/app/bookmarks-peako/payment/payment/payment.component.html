@@ -1,18 +1,18 @@
 <router-outlet></router-outlet>
-<main class="container_main">
+<main class="container-main">
   <div class="content">
-    <div *ngFor="let account of accounts" class="all_sections">
+    <div *ngFor="let account of accounts" class="all-sections">
       <div class="informations">
-        <div class="inforamtion_account">
+        <div class="inforamtion-account">
           <p class="title">{{account.accountName}}</p>
           <h1 class="description">
             Moje konto przekorzystne<span class="account-arrow"><img src="../../../assets/images/icon-right-arrow.svg"
                 alt="arrow" /></span>
           </h1>
-          <p class="number_bank">{{account.accountNumber}}</p>
+          <p class="number-bank">{{account.accountNumber}}</p>
         </div>
-        <div class="information_account2">
-          <p class="available_amount">dostęne środki</p>
+        <div class="information-account2">
+          <p class="available-amount">dostęne środki</p>
           <p class="amount">{{amountCalculated | formattingAmount}} PLN</p>
         </div>
       </div>
@@ -25,9 +25,9 @@
       </section>
 
       <section>
-        <div class="table_of_payment">
-          <div class="rows_of_history">
-            <div class="titles_of_column_tablet">
+        <div class="table-of-payment">
+          <div class="rows-of-history">
+            <div class="titles-of-column-tablet">
               <p>data</p>
               <p>type</p>
               <p>odbiorca/nadawca/tytuł</p>
@@ -37,39 +37,39 @@
             <!-- first row -->
             <div
               *ngFor="let row of account.transactions | transformObjectToArr | slice:start:end ; let change of details"
-              class="name_items_in_column" (click)="addClass(change)">
-              <div class="kind_data">
+              class="name-items-in-column" (click)="addClass(change)">
+              <div class="kind-data">
                 <p class="data">{{row.date | date:'dd.MM'}}</p>
               </div>
-              <div class="image_of_typ_pay">
-                <img *ngIf="row.type !== 'from'" src="../../../assets/images/incoming.svg" class="incoming_cash"
-                  alt="incoming_cash" />
-                <img *ngIf="row.type === 'from'" src="../../../assets/images/outcash.svg" class="incoming_cash"
-                  alt="incoming_cash" />
+              <div class="image-of-typ-pay">
+                <img *ngIf="row.type !== 'from'" src="../../../assets/images/incoming.svg" class="incoming-cash"
+                  alt="incoming-cash" />
+                <img *ngIf="row.type === 'from'" src="../../../assets/images/outcash.svg" class="incoming-cash"
+                  alt="incoming-cash" />
               </div>
-              <div class="name_title">
+              <div class="name-title">
                 <p>{{row.recipientName}} {{row.recipientSurname}}</p>
                 <p>{{row.title}}</p>
               </div>
-              <div *ngIf="row.type !== 'from'" class="category_of_transaction category_of_transaction_in ">
+              <div *ngIf="row.type !== 'from'" class="category-of-transaction category-of-transaction-in ">
                 <p>wpływy wewn.</p>
               </div>
-              <div *ngIf="row.type === 'from'" class="category_of_transaction category_of_transaction_out">
+              <div *ngIf="row.type === 'from'" class="category-of-transaction category-of-transaction-out">
                 <p>Przelew wychodzący</p>
               </div>
-              <div *ngIf="row.type === 'from'" class="amount_PLN">
+              <div *ngIf="row.type === 'from'" class="amount-PLN">
                 <p>{{row.amount | formattingAmount}} zł</p>
               </div>
-              <div *ngIf="row.type !== 'from'" class="amount_PLN">
+              <div *ngIf="row.type !== 'from'" class="amount-PLN">
                 <p>{{row.amount | formattingAmount}} zł</p>
               </div>
               <div class="details-of-payment " [class.active]="change.active" name="change">
                 <div class="details">
                   <div class="typeTransfer">
                     <p class="description-field">typ przelewu:</p>
-                    <p *ngIf="row.type === 'from'" class="category_of_transaction_out filled-field">Przelew wychodzący
+                    <p *ngIf="row.type === 'from'" class="category-of-transaction-out filled-field">Przelew wychodzący
                     </p>
-                    <p *ngIf="row.type !== 'from'" class=" category_of_transaction_in filled-field ">Przelew
+                    <p *ngIf="row.type !== 'from'" class=" category-of-transaction-in filled-field ">Przelew
                       przychodzący</p>
                   </div>
                   <div class="personAccNumber">

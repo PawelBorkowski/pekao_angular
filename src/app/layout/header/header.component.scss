@@ -9,13 +9,13 @@ header {
     background-color: #ac1419;
   }
 
-  .container_header {
+  .container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0px 20px 0px 20px;
 
-    .loup_search {
+    .loup-search {
       border: none;
       background-color: transparent;
       margin-right: 30px;
@@ -45,21 +45,21 @@ header {
       }
     }
 
-    .header_buttons {
+    .header-buttons {
       display: flex;
       align-items: center;
     }
 
-    .header_bntt_tablet {
+    .header-bntt-tablet {
       display: none;
 
       @media (min-width:768px) {
         display: flex;
         align-items: center;
 
-        .btn_settings,
-        .btn_email,
-        .btn_user,
+        .btn-settings,
+        .btn-email,
+        .btn-user,
         .log-out {
           border: none;
           background-color: transparent;
@@ -68,7 +68,7 @@ header {
           padding: 0;
         }
 
-        .user_name {
+        .user-name {
           display: none;
 
           @media (min-width:1352px) {
@@ -110,7 +110,7 @@ header {
       }
     }
 
-    .logo_small {
+    .logo-small {
       display: none;
 
       @media (min-width:768px) {
@@ -129,7 +129,7 @@ header {
   }
 }
 
-.nav_bottom {
+.nav-bottom {
   @media (min-width:360px) {
     display: none;
   }
@@ -183,7 +183,7 @@ header {
         }
       }
 
-      .input_search {
+      .input-search {
         position: relative;
 
         img {
@@ -206,7 +206,7 @@ header {
       }
     }
 
-    .container_nav {
+    .container-nav {
       @media (min-width:1352px) {
         max-width: 1220px;
         margin: 0 auto;

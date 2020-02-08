@@ -12,21 +12,21 @@
 
     <form [formGroup]="newPaymentForm" class="transferForm">
       <div class="container">
-        <div class="select_account container_input">
-          <label class="choose_account control"> Z rachunku </label>
-          <select id="choose_account" class="input_class">
+        <div class="select-account container-input">
+          <label class="choose-account control"> Z rachunku </label>
+          <select id="choose-account" class="input-class">
             <option value="my-first-acc">Moje Konto Przekorzystne 12 734,56 PLN</option>
             <option value="my-secacc"> Moje Konto Przekorzystne2 </option>
             <option value="my-third-acc"> Moje Konto Przekorzystne3 </option>
           </select>
         </div>
 
-        <div class="container_input">
+        <div class="container-input">
           <label class="acc-number control">Na rachunek </label>
-          <input formControlName="accNumber" required appAccountNumberValidator type="text" class="input_class"
-            placeholder="Wpisz rachunek odbiorcy" id="acc_number" />
+          <input formControlName="accNumber" required appAccountNumberValidator type="text" class="input-class"
+            placeholder="Wpisz rachunek odbiorcy" id="acc-number" />
           <p *ngIf="newPaymentForm.controls['accNumber'].invalid && (newPaymentForm.controls['accNumber'].dirty || newPaymentForm.controls['accNumber'].touched)"
-            class="info_about_error">
+            class="info-about-error">
             <span
               *ngIf="!newPaymentForm.controls.accNumber?.errors.required && newPaymentForm.controls.accNumber?.errors.accNumber">Wpisz
               poprawny numer konta</span>
@@ -35,89 +35,89 @@
 
         </div>
 
-        <div class="changing_order">
-          <div class=" container_input amount_to_transfer">
+        <div class="changing-order">
+          <div class=" container-input amount-to-transfer">
             <label class="recipientName control">Imię</label>
-            <input formControlName="recipientName" type="text" class="input_class name_input" placeholder="Imię"
+            <input formControlName="recipientName" type="text" class="input-class name-input" placeholder="Imię"
               id="amount" />
             <p *ngIf="newPaymentForm.controls['recipientName'].invalid && (newPaymentForm.controls['recipientName'].dirty || newPaymentForm.controls['recipientName'].touched)"
-              class="info_about_error">
+              class="info-about-error">
 
               <span *ngIf="newPaymentForm.controls['recipientName'].errors.required">Wymagane imię</span>
             </p>
           </div>
 
-          <div class="container_input transfer_title">
+          <div class="container-input transfer-title">
             <label class="title-transfer control">Nazwisko</label>
-            <input formControlName="recipientSurname" type="text" class="input_class" placeholder="Nazwisko"
-              id="title_transfer" />
+            <input formControlName="recipientSurname" type="text" class="input-class" placeholder="Nazwisko"
+              id="title-transfer" />
             <p *ngIf="newPaymentForm.controls['recipientSurname'].invalid && (newPaymentForm.controls['recipientSurname'].dirty || newPaymentForm.controls['recipientSurname'].touched)"
-              class="info_about_error">
+              class="info-about-error">
               <!-- <span *ngIf="newPaymentForm.controls.recipientSurname?.errors.recipientSurname">Wpisz poprawne hasło</span> -->
               <span *ngIf="newPaymentForm.controls['recipientSurname'].errors.required">Wymagane nazwisko</span>
             </p>
           </div>
         </div>
 
-        <div class="changing_order">
-          <div class=" container_input amount_to_transfer">
+        <div class="changing-order">
+          <div class="container-input amount-to-transfer">
             <label class="amount control">Kwota przelewu</label>
-            <input formControlName="amount" type="text" class="input_class amount_input" placeholder="00.00"
+            <input formControlName="amount" type="text" class="input-class amount-input" placeholder="00.00"
               id="amount" />
             <p *ngIf="newPaymentForm.controls['amount'].invalid && (newPaymentForm.controls['amount'].dirty || newPaymentForm.controls['amount'].touched)"
-              class="info_about_error">
+              class="info-about-error">
               <span *ngIf="newPaymentForm.controls.amount?.errors.pattern">Wpisz poprawny format kwoty</span>
               <span *ngIf="newPaymentForm.controls['amount'].errors.required">Wymagana kwota</span>
             </p>
           </div>
 
-          <div class="container_input adress_of_recipient">
+          <div class="container-input adress-of-recipient">
             <label class="adress-recipient control">Adres odbiorcy (Opcjonalnie)</label>
-            <input formControlName="recipientsAddress" type="text" class="input_class"
-              placeholder="Wpisz adres odbiorcy" id="adress_recipient" />
+            <input formControlName="recipientsAddress" type="text" class="input-class"
+              placeholder="Wpisz adres odbiorcy" id="adress-recipient" />
             <!-- <p *ngIf="newPaymentForm.controls['userPassword'].invalid && (newPaymentForm.controls['userPassword'].dirty || newPaymentForm.controls['userPassword'].touched)"
-              class="info_about_error">
+              class="info-about-error">
               <span *ngIf="newPaymentForm.controls.userPassword?.errors.userPassword">Wpisz poprawne hasło</span>
               <span *ngIf="newPaymentForm.controls['userPassword'].errors.required">Wymagane hasło</span>
             </p> -->
           </div>
 
-          <div class="container_input transfer_title">
+          <div class="container-input transfer-title">
             <label class="title-transfer control">Tytułem </label>
-            <input formControlName="title" type="text" class="input_class" placeholder="Tytuł przelewu"
-              id="title_transfer" />
+            <input formControlName="title" type="text" class="input-class" placeholder="Tytuł przelewu"
+              id="title-transfer" />
             <p *ngIf="newPaymentForm.controls['title'].invalid && (newPaymentForm.controls['title'].dirty || newPaymentForm.controls['title'].touched)"
-              class="info_about_error">
+              class="info-about-error">
               <!-- <span *ngIf="newPaymentForm.controls.title?.errors.title">Wpisz poprawne hasło</span> -->
               <span *ngIf="newPaymentForm.controls['title'].errors.required">Wymagany tytuł</span>
             </p>
           </div>
         </div>
 
-        <div class="container_input">
+        <div class="container-input">
           <label class="save-as-standing control">
-            <input formControlName="isStandingOrder" type="checkbox" name="standing_order" id="save_as_standing" />
+            <input formControlName="isStandingOrder" type="checkbox" name="standing-order" id="save-as-standing" />
             Zapisz jako zlecenie stałe
             <!-- <span class="checkmark"></span> -->
-            <span class="control__indicator"></span>
+            <span class="control-indicator"></span>
           </label>
         </div>
 
-        <div class="container_input order_name">
+        <div class="container-input order-name">
           <label class="name-order control">Nazwa zlecenia </label>
-          <input formControlName="nameOrder" type="text" class="input_class" placeholder="Placeholder" id="name_order"
+          <input formControlName="nameOrder" type="text" class="input-class" placeholder="Placeholder" id="name-order"
             checked="checked" />
           <p *ngIf="newPaymentForm.controls['nameOrder'].invalid && (newPaymentForm.controls['nameOrder'].dirty || newPaymentForm.controls['nameOrder'].touched)"
-            class="info_about_error">
+            class="info-about-error">
             <!-- <span *ngIf="newPaymentForm.controls.namerder?.errors.namerder">Wpisz poprawne hasło</span> -->
             <span *ngIf="newPaymentForm.controls['nameOrder'].errors.required">Wymagany tytuł</span>
           </p>
         </div>
       </div>
-      <div class="footer_in_window_pay">
-        <div class="click_next">
-          <img src="../../../../assets/images/arrow_right_white.svg" alt="right_arrow" class="right_arrow" />
-          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn_next" (click)="submit()">Dalej</button>
+      <div class="footer-in-window-pay">
+        <div class="click-next">
+          <img src="../../../../assets/images/arrow-right-white.svg" alt="right-arrow" class="right-arrow" />
+          <button type="submit" [disabled]="newPaymentForm.invalid" class="btn-next" (click)="submit()">Dalej</button>
         </div>
       </div>
 

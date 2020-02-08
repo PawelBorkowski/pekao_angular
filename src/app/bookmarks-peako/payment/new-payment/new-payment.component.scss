@@ -64,7 +64,7 @@
         height: 90vh;
       }
 
-      .container_input {
+      .container-input {
         display: flex;
         flex-direction: column;
         margin: 0 auto;
@@ -82,7 +82,7 @@
           margin-top: 11px
         }
 
-        .input_class {
+        .input-class {
           //width: 320px;
           height: 50px;
           border-radius: 4px;
@@ -110,7 +110,7 @@
           font-size: 14px;
 
           // &:hover {
-          //     input~.control__indicator {
+          //     input~.control-indicator {
           //         background-color: yellow;
           //     }
           // }
@@ -122,7 +122,7 @@
             height: 0;
             width: 0;
 
-            &:checked~.control__indicator {
+            &:checked~.control-indicator {
 
               background-color: $brand-color;
 
@@ -133,7 +133,7 @@
           }
         }
 
-        .control__indicator {
+        .control-indicator {
           position: absolute;
           top: -5px;
           left: 0;
@@ -158,13 +158,13 @@
         }
 
         // end  styling checkbox   //
-        .amount_input {
+        .amount-input {
           &::placeholder {
             text-align: right;
           }
         }
 
-        .name_input {
+        .name-input {
           &::placeholder {
             text-align: left;
           }
@@ -172,13 +172,13 @@
       }
 
       @media(min-width:768px) {
-        .changing_order {
+        .changing-order {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: flex-start;
 
-          .amount_to_transfer {
+          .amount-to-transfer {
             order: 2;
             // flex: 0 1 230px;
             // flex-basis: 230px;
@@ -186,14 +186,14 @@
             align-self: auto;
           }
 
-          .adress_of_recipient {
+          .adress-of-recipient {
             order: 1;
             // flex: 0 1 100%;
             flex-basis: 100%;
             align-self: auto;
           }
 
-          .transfer_title {
+          .transfer-title {
             order: 3;
             // flex: 1 0 auto;
             flex-grow: 1;
@@ -202,14 +202,14 @@
           }
         }
 
-        .order_name {
+        .order-name {
           width: 230px;
           margin: 0;
         }
 
       }
 
-      .info_about_error {
+      .info-about-error {
         padding-left: 20px;
         height: 50px;
         line-height: 50px;
@@ -222,7 +222,7 @@
     }
   }
 
-  .footer_in_window_pay {
+  .footer-in-window-pay {
     height: 73px;
     box-shadow: 0 0 10px 0.2px rgba(0, 0, 0, 0.2);
     background-color: $white-two;
@@ -242,7 +242,7 @@
       padding-right: 266px;
     }
 
-    .click_next {
+    .click-next {
       position: relative;
       top: -16px;
       display: flex;
@@ -264,7 +264,7 @@
         margin-right: 20px;
       }
 
-      .right_arrow {
+      .right-arrow {
         margin-top: 27px;
         margin-bottom: 5px;
 
@@ -273,7 +273,7 @@
         }
       }
 
-      .btn_next {
+      .btn-next {
         color: white;
         border: none;
         background-color: $brand-color;

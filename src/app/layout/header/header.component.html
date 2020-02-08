@@ -1,29 +1,29 @@
 <header>
-  <div class="container_header">
+  <div class="container-header">
     <a href="#" class="logo"><img src="../../../assets/images/logo_big.svg" alt="logoo" /></a><a href="#"
-      class="logo_small"><img src="../../../assets/images/logo_small.svg" alt="logoo" /></a>
-    <div class="header_buttons">
-      <button class="loup_search">
+      class="logo-small"><img src="../../../assets/images/logo_small.svg" alt="logoo" /></a>
+    <div class="header-buttons">
+      <button class="loup-search">
         <img src="../../../assets/images/loup.svg" alt="loup" /></button><button class="hamburger">
         <img src="../../../assets/images/menu.svg" alt="menu" />
       </button>
     </div>
-    <div class="header_bntt_tablet">
-      <button *ngIf="user" class="btn_settings">
+    <div class="header-bntt-tablet">
+      <button *ngIf="user" class="btn-settings">
         <img src="../../../assets/images/settings.svg" alt="settings" /></button>
-      <button *ngIf="user" class="btn_email">
+      <button *ngIf="user" class="btn-email">
         <img src="../../../assets/images/mail.svg" alt="mail" /></button>
-      <button *ngIf="user" class="btn_user">
+      <button *ngIf="user" class="btn-user">
         <img src="../../../assets/images/user.svg" alt="mail" />
       </button>
-      <p *ngIf="user" class="user_name">{{user.name}} {{user.surname}}</p>
+      <p *ngIf="user" class="user-name">{{user.name}} {{user.surname}}</p>
       <a *ngIf="user" class="log-out" (click)=logout()>Wyloguj</a>
       <a *ngIf="!user" routerLink='/login' class="log-out">Zaloguj</a>
     </div>
   </div>
 </header>
-<nav class="nav_bottom" *ngIf="user">
-  <div class="nav-btn-bottom container_nav">
+<nav class="nav-bottom" *ngIf="user">
+  <div class="nav-btn-bottom container-nav">
     <ul class="items">
       <li class="item  ">
         <a routerLink='/products' routerLinkActive='active'>produkty</a>
@@ -33,7 +33,7 @@
       </li>
     </ul>
 
-    <div class="input_search">
+    <div class="input-search">
       <input type="text" placeholder="Wyszukaj" /><img src="../../../assets/images/icon-search-red.svg" alt="search" />
     </div>
   </div>
