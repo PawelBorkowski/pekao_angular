@@ -4,11 +4,14 @@
       class="logo-small"><img src="../../../assets/images/logo_small.svg" alt="logoo" /></a>
     <div class="header-buttons">
       <button class="loup-search">
-        <img src="../../../assets/images/loup.svg" alt="loup" /></button><button class="hamburger">
-        <img src="../../../assets/images/menu.svg" alt="menu" />
+        <img src="../../../assets/images/loup.svg" alt="loup" /></button>
+      <button class="hamburger">
+        <img src=" ../../../assets/images/menu.svg" alt="menu" />
       </button>
     </div>
-    <div class="header-bntt-tablet">
+
+    <div class="header-bntt-tablet ">
+      <!-- <div class="details2"> -->
       <button *ngIf="user" class="btn-settings">
         <img src="../../../assets/images/settings.svg" alt="settings" /></button>
       <button *ngIf="user" class="btn-email">
@@ -19,7 +22,9 @@
       <p *ngIf="user" class="user-name">{{user.name}} {{user.surname}}</p>
       <a *ngIf="user" class="log-out" (click)=logout()>Wyloguj</a>
       <a *ngIf="!user" routerLink='/login' class="log-out">Zaloguj</a>
+      <!-- </div> -->
     </div>
+
   </div>
 </header>
 <nav class="nav-bottom" *ngIf="user">
