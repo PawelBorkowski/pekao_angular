@@ -5,12 +5,12 @@
     <div class="header-buttons">
       <button class="loup-search">
         <img src="../../../assets/images/loup.svg" alt="loup" /></button>
-      <button class="hamburger">
+      <button class="hamburger" (click)=showMobileMenu()>
         <img src=" ../../../assets/images/menu.svg" alt="menu" />
       </button>
     </div>
 
-    <div class="header-bntt-tablet ">
+    <div class="header-bntt-tablet" [class.active]='isMenuOpen'>
       <!-- <div class="details2"> -->
       <button *ngIf="user" class="btn-settings">
         <img src="../../../assets/images/settings.svg" alt="settings" /></button>

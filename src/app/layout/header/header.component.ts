@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isMenuOpen = false;
   user: { surname: string; name: string };
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -34,5 +35,11 @@ export class HeaderComponent implements OnInit {
   login() {
     // this.authService.logIn();
   }
+  showMobileMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    console.log(this.isMenuOpen);
+
+  }
+
 
 }

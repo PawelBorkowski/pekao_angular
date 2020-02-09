@@ -54,7 +54,7 @@ header {
     .header-bntt-tablet {
 
       @media (max-width:767px) {
-        display: flex;
+        display: none;
         position: absolute;
         right: 0px;
         top: 56px;
@@ -142,7 +142,7 @@ header {
       }
 
 
-      .active {
+      &.active {
         display: flex;
       }
     }
