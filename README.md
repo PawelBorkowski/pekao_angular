@@ -8,7 +8,9 @@ List of things that will be added to the application in the future:
 - SMS token validation;
 - validation of success or error transfer;
 - add additional accounts in a foreign currency;
-- adding main page and subpage products
+- adding main page and subpage products;
+- still working on styiling components;
+- still working on styling  each components.
 
 
 ## Development server
