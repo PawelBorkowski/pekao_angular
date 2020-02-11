@@ -1,6 +1,15 @@
 # AppPekaoAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+The application is a simulation of a bank account from which you can make transfers to other accounts.
+The project is not completed, it will be further developed.
+ 
+List of things that will be added to the application in the future:
+- SMS token validation;
+- validation of success or error transfer;
+- add additional accounts in a foreign currency;
+- adding main page and subpage products
+
 
 ## Development server
 
